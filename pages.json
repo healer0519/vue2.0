@@ -1,0 +1,65 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "弘文医疗器械"
+		}
+	}, {
+		"path": "pages/class/class",
+		"style": {
+			"navigationBarTitleText": "分类",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/cart/cart",
+		"style": {
+			"navigationBarTitleText": "购物车",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/me/me",
+		"style": {
+			"navigationBarTitleText": "我的",
+			"enablePullDownRefresh": false
+		}
+
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/首页.png",
+				"selectedIconPath": "static/首页 (1).png"
+			},
+			{
+				"pagePath": "pages/class/class",
+				"text": "分类",
+				"iconPath": "static/分类.png",
+				"selectedIconPath": "static/分类 (1).png"
+			},
+			{
+				"pagePath": "pages/cart/cart",
+				"text": "购物车",
+				"iconPath": "static/购物车.png",
+				"selectedIconPath": "static/购物车 (1).png"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我的",
+				"iconPath": "static/我.png",
+				"selectedIconPath": "static/我 (1).png"
+			}
+		]
+	}
+}

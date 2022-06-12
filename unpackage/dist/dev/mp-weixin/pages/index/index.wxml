@@ -1,0 +1,1 @@
+<uni-notice-bar wx:if="{{a}}" u-i="775612e9-0" bind:__l="__l" u-p="{{a}}"></uni-notice-bar><uni-search-bar wx:if="{{g}}" bindconfirm="{{b}}" bindblur="{{c}}" bindfocus="{{d}}" bindinput="{{e}}" u-i="775612e9-1" bind:__l="__l" bindupdateModelValue="{{f}}" u-p="{{g}}"></uni-search-bar>

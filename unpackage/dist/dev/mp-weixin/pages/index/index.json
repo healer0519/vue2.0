@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "弘文医疗器械",
+  "usingComponents": {
+    "uni-notice-bar": "../../uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar",
+    "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar"
+  }
+}
