@@ -1,6 +1,6 @@
 <template>
 	<view>
-		搜索
+		搜索git
 	</view>
 </template>
 
