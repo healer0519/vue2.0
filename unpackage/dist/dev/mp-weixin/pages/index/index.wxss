@@ -1,0 +1,63 @@
+.container.data-v-57280228 .uni-noticebar {
+  margin-bottom: 0px;
+  height: 80rpx;
+}
+.container.data-v-57280228 .uni-searchbar {
+  background-color: lightblue;
+}
+.container .introduce image.data-v-57280228 {
+  width: 100%;
+}
+.container .imageSwiper .swiper-item image.data-v-57280228 {
+  width: 100%;
+}
+.container .gridSwiper.data-v-57280228 {
+  height: 375rpx;
+}
+.container .shoppingreduce.data-v-57280228 {
+  height: 150rpx;
+  width: 100%;
+}
+.container.data-v-57280228 .uni-title__box {
+  padding: 0px;
+  background-color: lightblue;
+}
+.container .shoppingnav.data-v-57280228 {
+  width: 100%;
+  white-space: nowrap;
+  padding: 10rpx 30rpx;
+}
+.container .shoppingnav .item.data-v-57280228 {
+  margin-right: 50rpx;
+}
+.container .shoppingContent .shoppingitem.data-v-57280228 {
+  background-color: white;
+  margin: 5px;
+  width: 350rpx;
+  height: 550rpx;
+  float: left;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+}
+.container .shoppingContent .shoppingitem image.data-v-57280228 {
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  height: 350rpx;
+}
+.container .shoppingContent .shoppingitem .des.data-v-57280228 {
+  position: relative;
+  padding: 20rpx;
+}
+.container .shoppingContent .shoppingitem .des .itemname.data-v-57280228 {
+  height: 65rpx;
+  font-size: 25rpx;
+}
+.container .shoppingContent .shoppingitem .des .itemprice.data-v-57280228 {
+  font-size: 35rpx;
+  color: red;
+}
+.container .shoppingContent .shoppingitem .des .itemoldprice.data-v-57280228 {
+  font-size: 20rpx;
+  color: gray;
+  text-decoration: line-through;
+}

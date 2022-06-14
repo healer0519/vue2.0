@@ -25,8 +25,29 @@
 			"enablePullDownRefresh": false
 		}
 
+	}, {
+		"path": "pages/search/search",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/introduce/introduce",
+		"style": {
+			"navigationBarTitleText": "武安市洪文医疗器械销售有限公司",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/swiperdetail/swiperdetail",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
 	}    ,{
-            "path" : "pages/search/search",
+            "path" : "components/cartpop/cartpop",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

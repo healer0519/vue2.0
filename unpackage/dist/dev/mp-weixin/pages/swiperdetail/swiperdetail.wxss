@@ -1,0 +1,15 @@
+.container .swipercontent .item.data-v-045976a6 {
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1px solid lightgray;
+}
+.container .swipercontent .item image.data-v-045976a6 {
+  margin: auto;
+  width: 180rpx;
+  height: 180rpx;
+}
+.container .swipercontent .item .right.data-v-045976a6 {
+  width: 570rpx;
+  background-color: aqua;
+  position: relative;
+}

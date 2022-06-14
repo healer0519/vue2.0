@@ -2,6 +2,10 @@
   "navigationBarTitleText": "弘文医疗器械",
   "usingComponents": {
     "uni-notice-bar": "../../uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar",
-    "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar"
+    "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
+    "uni-grid-item": "../../uni_modules/uni-grid/components/uni-grid-item/uni-grid-item",
+    "uni-grid": "../../uni_modules/uni-grid/components/uni-grid/uni-grid",
+    "uni-title": "../../uni_modules/uni-title/components/uni-title/uni-title",
+    "cartpop": "../../components/cartpop/cartpop"
   }
 }
