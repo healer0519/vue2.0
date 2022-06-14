@@ -1,6 +1,6 @@
 "use strict";
-var common_JS_http = require("./common/JS/http.js");
 var common_vendor = require("./common/vendor.js");
+var common_JS_http = require("./common/JS/http.js");
 const _sfc_main = {
   name: "item",
   props: ["item"],
@@ -21,7 +21,8 @@ const _sfc_main = {
           backgroundColor: "linear-gradient(90deg, #EF1224, #FE6035)",
           color: "#fff"
         }
-      ]
+      ],
+      images: []
     };
   },
   methods: {
@@ -43,6 +44,19 @@ const _sfc_main = {
     },
     buttonClick(e) {
       console.log(e);
+    },
+    GetImage(array) {
+      for (var i = 0; i < array.length; i++) {
+        this.images[i] = array[i].pic_url;
+      }
+    },
+    previewImage(index) {
+      this.GetImage(this.gooddetail.attr);
+      common_vendor.index.previewImage({
+        current: index,
+        urls: this.images,
+        indicator: "number"
+      });
     }
   }
 };
@@ -69,7 +83,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       return {
         a: gooditem.pic_url,
         b: common_vendor.o(($event) => $options.headChange(idx)),
-        c: common_vendor.t(gooditem.attr_list[0].attr_name)
+        c: common_vendor.t(gooditem.attr_list[0].attr_name),
+        d: common_vendor.o(($event) => $options.previewImage(idx))
       };
     }),
     g: _ctx.index,

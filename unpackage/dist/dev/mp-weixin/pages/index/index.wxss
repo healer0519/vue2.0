@@ -14,9 +14,125 @@
 .container .gridSwiper.data-v-57280228 {
   height: 375rpx;
 }
-.container .shoppingreduce.data-v-57280228 {
+.container .juan.data-v-57280228 {
+  display: flex;
+}
+.container .juan .tickets.data-v-57280228 {
+  display: flex;
+  padding: 20rpx;
+  width: 50%;
   height: 150rpx;
-  width: 100%;
+  box-sizing: border-box;
+}
+.container .juan .l-tickets.data-v-57280228 {
+  width: 75%;
+  background: skyblue;
+}
+.container .juan .r-tickets.data-v-57280228 {
+  flex: 1;
+  background: orchid;
+}
+.container .juan .l-tickets.data-v-57280228 {
+  width: 75%;
+  height: 100%;
+  position: relative;
+}
+.container .juan .l-tickets.data-v-57280228::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 8rpx;
+  top: 0;
+  left: -8rpx;
+  /* 
+			    	语法：
+			    	background:bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; 
+			    	radial-gradient(shape size at position, start-color, ..., last-color);
+			    */
+  background: radial-gradient(circle at left center, transparent 8rpx, skyblue 0) left center / 8rpx 20rpx;
+}
+.container .juan .r-tickets.data-v-57280228 {
+  flex: 1;
+  position: relative;
+}
+.container .juan .r-tickets.data-v-57280228::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 8rpx;
+  top: 0;
+  right: -8rpx;
+  background: radial-gradient(circle at right center, transparent 8rpx, orchid 0) right center / 8rpx 20rpx;
+}
+.container .juan .l-tickets.data-v-57280228 {
+  width: 75%;
+  height: 100%;
+  position: relative;
+  background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
+}
+.container .juan .r-tickets.data-v-57280228 {
+  position: relative;
+  background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
+}
+.container .juan .r-tickets.data-v-57280228::before {
+  content: '';
+  width: 1rpx;
+  background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
+  position: absolute;
+  left: 0;
+  top: 16rpx;
+  bottom: 16rpx;
+}
+.container .juan .l-tickets.data-v-57280228 {
+  width: 75%;
+  height: 100%;
+  position: relative;
+  background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
+  filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, 0.3));
+}
+.container .juan .r-tickets.data-v-57280228 {
+  position: relative;
+  background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
+  filter: drop-shadow(3px 0 3px rgba(0, 0, 0, 0.3));
+}
+.container .juan .l-tickets.data-v-57280228 {
+  width: 75%;
+  position: relative;
+  background: radial-gradient(circle at right top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+  filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, 0.3));
+}
+.container .juan .l-tickets.data-v-57280228::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 8rpx;
+  top: 0;
+  left: -8rpx;
+  background: radial-gradient(circle at left center, transparent 8rpx, #FF8888 0) left center / 8rpx 20rpx;
+}
+.container .juan .r-tickets.data-v-57280228 {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at left top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+  filter: drop-shadow(3px 0 3px rgba(0, 0, 0, 0.3));
+}
+.container .juan .r-tickets.data-v-57280228::before {
+  content: '';
+  width: 1rpx;
+  background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
+  position: absolute;
+  left: 0;
+  top: 16rpx;
+  bottom: 16rpx;
+}
+.container .juan .r-tickets.data-v-57280228::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 8rpx;
+  top: 0;
+  right: -8rpx;
+  background: radial-gradient(circle at right center, transparent 8rpx, #FF8888 0) right center / 8rpx 20rpx;
 }
 .container.data-v-57280228 .uni-title__box {
   padding: 0px;

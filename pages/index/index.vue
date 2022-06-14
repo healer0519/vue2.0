@@ -12,7 +12,7 @@
 		<!-- 图片轮播 1-->
 
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" class="imageSwiper">
-			<swiper-item v-for="item in swiperlist" :key="item.id" >
+			<swiper-item v-for="item in swiperlist" :key="item.id">
 				<view class="swiper-item">
 					<image :src="item.url" mode="widthFix" @click.stop="ToSwiperdetail(item.id)"></image>
 				</view>
@@ -23,9 +23,10 @@
 		<swiper :indicator-dots="true" :interval="3000" :duration="1000" class="gridSwiper">
 			<swiper-item>
 				<view class="swiper-item">
-					<uni-grid :column="4" >
+					<uni-grid :column="4">
 						<uni-grid-item v-for="item in gridList[0]">
-							<image :src="item.icon" mode="widthFix" style="width: 100rpx;" @click.stop="ToSwiperdetail(item.id)"></image>
+							<image :src="item.icon" mode="widthFix" style="width: 100rpx;"
+								@click.stop="ToSwiperdetail(item.id)"></image>
 							<view class="">{{item.name}}</view>
 						</uni-grid-item>
 
@@ -36,7 +37,8 @@
 				<view class="swiper-item">
 					<uni-grid :column="4">
 						<uni-grid-item v-for="item in gridList[1]">
-							<image :src="item.icon" mode="widthFix" style="width: 100rpx;" @click.stop="ToSwiperdetail(item.id)"></image>
+							<image :src="item.icon" mode="widthFix" style="width: 100rpx;"
+								@click.stop="ToSwiperdetail(item.id)"></image>
 							<view class="">{{item.name}}</view>
 						</uni-grid-item>
 					</uni-grid>
@@ -44,7 +46,17 @@
 			</swiper-item>
 		</swiper>
 		<!-- 消费券 -->
-		<view class="shoppingreduce"></view>
+		<view class="juan">
+			<view class="tickets">
+				<view class="l-tickets"></view>
+				<view class="r-tickets"></view>
+			</view>
+			<view class="tickets">
+				<view class="l-tickets"></view>
+				<view class="r-tickets"></view>
+			</view>
+		</view>
+
 		<uni-title type="h2" title="————热销产品————" align="center"></uni-title>
 		<!-- 热销产品 -->
 		<scroll-view scroll-x="true" class="shoppingnav">
@@ -304,10 +316,151 @@
 			height: 375rpx;
 		}
 
-		.shoppingreduce {
-			height: 150rpx;
-			width: 100%;
+		.juan {
+			display: flex;
+			.tickets {
+				display: flex;
+				padding: 20rpx;
+				width: 50%;
+				height: 150rpx;
+				box-sizing: border-box;
+			}
+
+			.l-tickets {
+				width: 75%;
+				background: skyblue;
+			}
+
+			.r-tickets {
+				flex: 1;
+				background: orchid;
+			}
+
+			.l-tickets {
+				width: 75%;
+				height: 100%;
+				position: relative;
+			}
+
+			.l-tickets::after {
+				content: '';
+				position: absolute;
+				height: 100%;
+				width: 8rpx;
+				top: 0;
+				left: -8rpx;
+				/* 
+			    	语法：
+			    	background:bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; 
+			    	radial-gradient(shape size at position, start-color, ..., last-color);
+			    */
+				background: radial-gradient(circle at left center, transparent 8rpx, skyblue 0) left center / 8rpx 20rpx;
+			}
+
+			.r-tickets {
+				flex: 1;
+				position: relative;
+			}
+
+			.r-tickets::after {
+				content: '';
+				position: absolute;
+				height: 100%;
+				width: 8rpx;
+				top: 0;
+				right: -8rpx;
+				background: radial-gradient(circle at right center, transparent 8rpx, orchid 0) right center / 8rpx 20rpx;
+			}
+
+			.l-tickets {
+				width: 75%;
+				height: 100%;
+				position: relative;
+				background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat,
+					radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
+			}
+
+			.r-tickets {
+				position: relative;
+				background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat,
+					radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
+			}
+
+			.r-tickets::before {
+				content: '';
+				width: 1rpx;
+				background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
+				position: absolute;
+				left: 0;
+				top: 16rpx;
+				bottom: 16rpx;
+			}
+
+			.l-tickets {
+				width: 75%;
+				height: 100%;
+				position: relative;
+				background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat,
+					radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
+				filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, .3));
+			}
+
+			.r-tickets {
+				position: relative;
+				background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat,
+					radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
+				filter: drop-shadow(3px 0 3px rgba(0, 0, 0, .3));
+			}
+
+			.l-tickets {
+				width: 75%;
+				position: relative;
+				background: radial-gradient(circle at right top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat,
+					radial-gradient(circle at right bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+				filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, .3));
+			}
+
+			.l-tickets::after {
+				content: '';
+				position: absolute;
+				height: 100%;
+				width: 8rpx;
+				top: 0;
+				left: -8rpx;
+				background: radial-gradient(circle at left center, transparent 8rpx, #FF8888 0) left center / 8rpx 20rpx;
+			}
+
+			.r-tickets {
+				flex: 1;
+				position: relative;
+				background: radial-gradient(circle at left top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat,
+					radial-gradient(circle at left bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+				filter: drop-shadow(3px 0 3px rgba(0, 0, 0, .3));
+			}
+
+			.r-tickets::before {
+				content: '';
+				width: 1rpx;
+				background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
+				position: absolute;
+				left: 0;
+				top: 16rpx;
+				bottom: 16rpx;
+			}
+
+			.r-tickets::after {
+				content: '';
+				position: absolute;
+				height: 100%;
+				width: 8rpx;
+				top: 0;
+				right: -8rpx;
+				background: radial-gradient(circle at right center, transparent 8rpx, #FF8888 0) right center / 8rpx 20rpx;
+			}
+
 		}
+
+
 
 		/deep/.uni-title__box {
 			padding: 0px;
@@ -368,9 +521,10 @@
 
 			}
 		}
-	    .gridSwiper{
-			.swiper-item{
-					background-image: url("../../static/swiper1.jpg");
+
+		.gridSwiper {
+			.swiper-item {
+				background-image: url("../../static/swiper1.jpg");
 			}
 		}
 	}

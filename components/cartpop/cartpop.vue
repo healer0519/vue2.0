@@ -20,6 +20,9 @@
 					<view v-for="(gooditem,idx) in gooddetail.attr" :key="index" class="gooditemcard">
 						<image :src="gooditem.pic_url" mode="widthFix" @click="headChange(idx)"></image>
 						<view class="gooditemName">{{gooditem.attr_list[0].attr_name}}</view>
+						<view class="lookimage" @click="previewImage(idx)">
+
+						</view>
 					</view>
 					<view class="">
 						数量<uni-number-box v-model="vModelValue"></uni-number-box>
@@ -27,9 +30,9 @@
 				</scroll-view>
 
 				<view class="footer">
-					<uni-goods-nav  :options="options" :button-group="buttonGroup" 
-						@buttonClick="buttonClick" :fill="true" />
-						
+					<uni-goods-nav :options="options" :button-group="buttonGroup" @buttonClick="buttonClick"
+						:fill="true" />
+
 				</view>
 			</view>
 		</uni-popup>
@@ -61,6 +64,7 @@
 						color: '#fff',
 					}
 				],
+				images: []
 
 			}
 		},
@@ -82,11 +86,27 @@
 				this.headlist = this.gooddetail.attr[id]
 			},
 			buttonClick(e) {
-							console.log(e)
-							// this.options[2].info++
-						}
-               
-		},
+				console.log(e)
+				// this.options[2].info++
+			},
+			GetImage(array) {
+				for (var i = 0; i < array.length; i++)
+
+				{
+					this.images[i] = array[i].pic_url
+				}
+			},
+			previewImage(index) {
+				this.GetImage(this.gooddetail.attr)
+				uni.previewImage({
+					current: index,
+					urls: this.images,
+					indicator: "number"
+
+				})
+			}
+
+		}
 
 
 	}
@@ -172,8 +192,17 @@
 				border-radius: 10rpx;
 				float: left;
 				margin-right: 17rpx;
-
+				position: relative;
 				margin-bottom: 20rpx;
+
+				.lookimage {
+					position: absolute;
+					top: 20rpx;
+					right: 20rpx;
+					background-color: red;
+					width: 40rpx;
+					height: 40rpx;
+				}
 
 				image {
 					width: 100%;
