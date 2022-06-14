@@ -48,20 +48,43 @@
 	.container {
 		.swipercontent {
 			.item {
+				// background-color: red;
 				display: flex;
 				padding: 20rpx;
+				height: 250rpx;
 				border-bottom: 1px solid lightgray;
 
 				image {
 					margin: auto;
-					width: 180rpx;
-					height: 180rpx;
+					width: 250rpx;
+					height: 250rpx;
 				}
 
 				.right {
 					width: 570rpx;
-					background-color: aqua;
+					// background-color: aqua;
 					position: relative;
+					padding: 20rpx;
+					box-sizing: border-box;
+					.rightname{
+						font-size: 30rpx;
+					}
+					.rightsale{
+						margin-top: 25rpx;
+						font-size: 20rpx;
+						color: gray;
+					}
+					.rightprice{
+						margin-top: 40rpx;
+						font-size: 30rpx;
+						font-weight: 700;
+						color: red;
+					}
+					.rightoldprice{
+						font-size: 20rpx;
+						color: gray;
+						text-decoration: line-through;
+					}
 					
 					
 				}

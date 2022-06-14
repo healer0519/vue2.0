@@ -12,7 +12,7 @@
 		<!-- 图片轮播 1-->
 
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" class="imageSwiper">
-			<swiper-item v-for="item in swiperlist" :key="item.id">
+			<swiper-item v-for="item in swiperlist" :key="item.id" >
 				<view class="swiper-item">
 					<image :src="item.url" mode="widthFix" @click.stop="ToSwiperdetail(item.id)"></image>
 				</view>
@@ -23,48 +23,21 @@
 		<swiper :indicator-dots="true" :interval="3000" :duration="1000" class="gridSwiper">
 			<swiper-item>
 				<view class="swiper-item">
-					<uni-grid :column="4">
-						<uni-grid-item>
-							<text class="text">文本</text>
+					<uni-grid :column="4" >
+						<uni-grid-item v-for="item in gridList[0]">
+							<image :src="item.icon" mode="widthFix" style="width: 100rpx;" @click.stop="ToSwiperdetail(item.id)"></image>
+							<view class="">{{item.name}}</view>
 						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
+
 					</uni-grid>
 				</view>
 			</swiper-item>
 			<swiper-item>
 				<view class="swiper-item">
 					<uni-grid :column="4">
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<text class="text">文本</text>
+						<uni-grid-item v-for="item in gridList[1]">
+							<image :src="item.icon" mode="widthFix" style="width: 100rpx;" @click.stop="ToSwiperdetail(item.id)"></image>
+							<view class="">{{item.name}}</view>
 						</uni-grid-item>
 					</uni-grid>
 				</view>
@@ -127,58 +100,136 @@
 				goods: {},
 				shoppingnavList: [{
 						id: 351811,
-						name: "洪仁堂专区"
+						name: "洪仁堂专区",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 354976,
-						name: "夏季专柜"
+						name: "夏季专柜",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350930,
-						name: "医用耗材"
+						name: "医用耗材",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350928,
-						name: "电子产品"
+						name: "电子产品",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350925,
-						name: "防护消毒"
+						name: "防护消毒",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350927,
-						name: "保健品"
+						name: "保健品",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350925,
-						name: "外用产品"
+						name: "外用产品",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350923,
-						name: "医用设备"
+						name: "医用设备",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350720,
-						name: "医用护具"
+						name: "医用护具",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350922,
-						name: "康复理疗"
+						name: "康复理疗",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 353183,
-						name: "计生用品"
+						name: "计生用品",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 353182,
-						name: "花茶"
+						name: "花茶",
+						icon: "/static/洪仁堂.png"
 					},
 					{
 						id: 350929,
-						name: "中医设备"
+						name: "中医设备",
+						icon: "/static/洪仁堂.png"
 					},
 				],
 				shoppingList: {},
+				gridList: [
+					[{
+							id: 351811,
+							name: "洪仁堂专区",
+							icon: "/static/洪仁堂.png"
+						},
+						{
+							id: 350928,
+							name: "电子产品",
+							icon: "/static/health健康.png"
+						},
+						{
+							id: 350923,
+							name: "医用设备",
+							icon: "/static/官方账号.png"
+						},
+						{
+							id: 350930,
+							name: "医用耗材",
+							icon: "/static/互粉车.png"
+						},
+						{
+							id: 350925,
+							name: "防护消毒",
+							icon: "/static/听诊器.png"
+						},
+						{
+							id: 350925,
+							name: "外用产品",
+							icon: "/static/优惠券.png"
+						},
+						{
+							id: 350922,
+							name: "康复理疗",
+							icon: "/static/精品课堂.png"
+						},
+						{
+							id: 350720,
+							name: "医用护具",
+							icon: "/static/图片转文字.png"
+						}
+					],
+					[{
+							id: 350929,
+							name: "中医设备",
+							icon: "/static/意见反馈.png"
+						},
+						{
+							id: 353182,
+							name: "花茶",
+							icon: "/static/图片转文字.png"
+						},
+						{
+							id: 350927,
+							name: "保健品",
+							icon: "/static/精品课堂.png"
+						},
+						{
+							id: 353183,
+							name: "计生用品",
+							icon: "/static/互粉车.png"
+						},
+					]
+				]
+
 
 			}
 		},
@@ -315,6 +366,11 @@
 
 				}
 
+			}
+		}
+	    .gridSwiper{
+			.swiper-item{
+					background-image: url("../../static/swiper1.jpg");
 			}
 		}
 	}

@@ -61,3 +61,6 @@
   color: gray;
   text-decoration: line-through;
 }
+.container .gridSwiper .swiper-item.data-v-57280228 {
+  background-image: url("../../static/swiper1.jpg");
+}

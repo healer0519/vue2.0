@@ -1,15 +1,36 @@
 .container .swipercontent .item.data-v-045976a6 {
   display: flex;
   padding: 20rpx;
+  height: 250rpx;
   border-bottom: 1px solid lightgray;
 }
 .container .swipercontent .item image.data-v-045976a6 {
   margin: auto;
-  width: 180rpx;
-  height: 180rpx;
+  width: 250rpx;
+  height: 250rpx;
 }
 .container .swipercontent .item .right.data-v-045976a6 {
   width: 570rpx;
-  background-color: aqua;
   position: relative;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.container .swipercontent .item .right .rightname.data-v-045976a6 {
+  font-size: 30rpx;
+}
+.container .swipercontent .item .right .rightsale.data-v-045976a6 {
+  margin-top: 25rpx;
+  font-size: 20rpx;
+  color: gray;
+}
+.container .swipercontent .item .right .rightprice.data-v-045976a6 {
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: red;
+}
+.container .swipercontent .item .right .rightoldprice.data-v-045976a6 {
+  font-size: 20rpx;
+  color: gray;
+  text-decoration: line-through;
 }
