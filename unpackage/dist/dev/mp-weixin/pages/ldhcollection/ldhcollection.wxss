@@ -1,0 +1,106 @@
+.tit.data-v-011d3064 {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.tit .tabItem.data-v-011d3064 {
+  flex: 1;
+}
+.tit .tabItem.active.data-v-011d3064 {
+  color: red;
+  border-bottom: 1px solid red;
+}
+.head.data-v-011d3064 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.head .item.data-v-011d3064 {
+  margin-left: 30rpx;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+  width: 160rpx;
+  background-color: #ccc;
+  border-radius: 40rpx;
+}
+.head .item.active.data-v-011d3064 {
+  border: 1px solid red;
+  color: red;
+  background-color: white;
+}
+.head .manage.data-v-011d3064 {
+  flex: 1;
+  margin-left: 100px;
+}
+.ll .all.data-v-011d3064 {
+  width: 100vw;
+  height: 120px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.ll .all .tlt.data-v-011d3064 {
+  margin-left: 20rpx;
+  width: 40%;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: red;
+  border: 1px solid red;
+  border-radius: 16px;
+}
+.ll .state.data-v-011d3064 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  height: 150px;
+  border-bottom: 1px solid #ccc;
+}
+.ll .state .tlt.data-v-011d3064 {
+  margin-left: 20rpx;
+  width: 40%;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+}
+.ll .state .tlt.active.data-v-011d3064 {
+  color: red;
+  border: 1px solid red;
+}
+.ll .foot.data-v-011d3064 {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-bottom: #ccc;
+}
+.ll .foot view.data-v-011d3064:first-child {
+  flex: 1;
+  color: #333;
+}
+.ll .foot view.data-v-011d3064:last-child {
+  flex: 1;
+  background-color: red;
+  color: white;
+}
+.content.data-v-011d3064 {
+  text-align: center;
+  height: 200px;
+  line-height: 200px;
+  width: 100vw;
+}

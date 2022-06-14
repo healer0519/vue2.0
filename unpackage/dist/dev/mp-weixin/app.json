@@ -3,11 +3,17 @@
     "pages/index/index",
     "pages/class/class",
     "pages/cart/cart",
-    "pages/me/me",
     "pages/search/search",
     "pages/introduce/introduce",
     "pages/swiperdetail/swiperdetail",
-    "components/cartpop/cartpop"
+    "components/cartpop/cartpop",
+    "pages/me/me",
+    "pages/ldhmymessage/ldhmymessage",
+    "pages/ldhcollection/ldhcollection",
+    "pages/ldhscore/ldhscore",
+    "pages/ldhdiscount/ldhdiscount",
+    "pages/ldhcard/ldhcard",
+    "pages/ldhbalance/ldhbalance"
   ],
   "window": {
     "navigationBarTextStyle": "black",

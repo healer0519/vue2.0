@@ -6,11 +6,17 @@ if (!Math) {
   "./pages/index/index.js";
   "./pages/class/class.js";
   "./pages/cart/cart.js";
-  "./pages/me/me.js";
   "./pages/search/search.js";
   "./pages/introduce/introduce.js";
   "./pages/swiperdetail/swiperdetail.js";
   "./components/cartpop/cartpop.js";
+  "./pages/me/me.js";
+  "./pages/ldhmymessage/ldhmymessage.js";
+  "./pages/ldhcollection/ldhcollection.js";
+  "./pages/ldhscore/ldhscore.js";
+  "./pages/ldhdiscount/ldhdiscount.js";
+  "./pages/ldhcard/ldhcard.js";
+  "./pages/ldhbalance/ldhbalance.js";
 }
 const _sfc_main = {
   onLaunch: function() {

@@ -1,0 +1,135 @@
+.container.data-v-259fb574 {
+  font-size: 14px;
+  line-height: 24px;
+}
+.container .head.data-v-259fb574 {
+  color: white;
+  padding-bottom: 60rpx;
+  width: 100%;
+  background-color: #ddf;
+  background-image: url(https://v4.h2ovip.top/web/statics/img/mall/user-center/img-user-bg.png);
+}
+.container .head .thead.data-v-259fb574 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .head .thead .imgname.data-v-259fb574 {
+  display: flex;
+  align-items: center;
+}
+.container .head .thead .imgname .img.data-v-259fb574 {
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+}
+.container .head .thead .imgname text.data-v-259fb574 {
+  color: white;
+  margin-left: 20rpx;
+}
+.container .head .thead .address.data-v-259fb574 {
+  border: 1px solid black;
+  border-right: none;
+  border-radius: 50rpx 0 0 50rpx;
+  display: flex;
+  align-items: center;
+}
+.container .head .thead .address .item2.data-v-259fb574 {
+  width: 60px;
+}
+.container .head .login.data-v-259fb574 {
+  text-align: center;
+}
+.container .head .content.data-v-259fb574 {
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .head .content .collection.data-v-259fb574 {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid white;
+}
+.container .head .content .collection .inner.data-v-259fb574 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .head .content .foot.data-v-259fb574 {
+  flex: 1;
+  text-align: center;
+}
+.container .head .content .foot .inner.data-v-259fb574 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .order.data-v-259fb574 {
+  width: 660rpx;
+  margin: 0 auto;
+  margin-top: -60rpx;
+  background-color: white;
+  border-radius: 16rpx;
+}
+.container .order .title.data-v-259fb574 {
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+.container .order .state.data-v-259fb574 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.container .order .state .item.data-v-259fb574 {
+  flex: 1;
+  box-sizing: border-box;
+}
+.container .activity.data-v-259fb574 {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  height: 120rpx;
+  box-sizing: border-box;
+}
+.container .activity .score.data-v-259fb574 {
+  flex: 1;
+  background-color: darkgray;
+  border-radius: 18rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+.container .activity .score view.data-v-259fb574 {
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.container .activity .discounts.data-v-259fb574 {
+  flex: 1;
+  background-color: darkgray;
+  border-radius: 18rpx;
+  margin-right: 20rpx;
+}
+.container .activity .discounts view.data-v-259fb574 {
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.container .card.data-v-259fb574 {
+  background-color: #ddd;
+  height: 120rpx;
+  border-radius: 18rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.container .card view.data-v-259fb574 {
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+.container .cbar.data-v-259fb574 {
+  margin-top: 20rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+}

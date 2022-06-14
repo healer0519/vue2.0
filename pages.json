@@ -1,61 +1,102 @@
 {
 	"pages": [{
-		"path": "pages/index/index",
-		"style": {
-			"navigationBarTitleText": "弘文医疗器械"
-		}
-	}, {
-		"path": "pages/class/class",
-		"style": {
-			"navigationBarTitleText": "分类",
-			"enablePullDownRefresh": false
-		}
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "弘文医疗器械"
+			}
+		}, {
+			"path": "pages/class/class",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": false
+			}
 
-	}, {
-		"path": "pages/cart/cart",
-		"style": {
-			"navigationBarTitleText": "购物车",
-			"enablePullDownRefresh": false
-		}
+		}, {
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"enablePullDownRefresh": false
+			}
 
-	}, {
-		"path": "pages/me/me",
-		"style": {
-			"navigationBarTitleText": "我的",
-			"enablePullDownRefresh": false
-		}
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 
-	}, {
-		"path": "pages/search/search",
-		"style": {
-			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false
-		}
+		}, {
+			"path": "pages/introduce/introduce",
+			"style": {
+				"navigationBarTitleText": "武安市洪文医疗器械销售有限公司",
+				"enablePullDownRefresh": false
+			}
 
-	}, {
-		"path": "pages/introduce/introduce",
-		"style": {
-			"navigationBarTitleText": "武安市洪文医疗器械销售有限公司",
-			"enablePullDownRefresh": false
-		}
+		}, {
+			"path": "pages/swiperdetail/swiperdetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 
-	}, {
-		"path": "pages/swiperdetail/swiperdetail",
-		"style": {
-			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false
-		}
+		}, {
+			"path": "components/cartpop/cartpop",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 
-	}    ,{
-            "path" : "components/cartpop/cartpop",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+		},
+		{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "用户中心",
+				"navigationBarBackgroundColor": "#ff0713"
+			}
+		}, {
+			"path": "pages/ldhmymessage/ldhmymessage",
+			"style": {
+				"navigationBarTitleText": "付款码",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhcollection/ldhcollection",
+			"style": {
+				"navigationBarTitleText": "我的收藏",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhscore/ldhscore",
+			"style": {
+				"navigationBarTitleText": "积分商城",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhdiscount/ldhdiscount",
+			"style": {
+				"navigationBarTitleText": "我的优惠券",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhcard/ldhcard",
+			"style": {
+				"navigationBarTitleText": "我的卡券",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhbalance/ldhbalance",
+			"style": {
+				"navigationBarTitleText": "余额记录",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

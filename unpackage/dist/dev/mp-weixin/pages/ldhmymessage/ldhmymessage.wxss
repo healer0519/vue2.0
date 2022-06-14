@@ -1,0 +1,69 @@
+.pay.data-v-c7954434 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(http://v4.h2ovip.top/web/statics/img/common/balance-bg.png);
+  background-size: cover;
+}
+.pay .headimg.data-v-c7954434 {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pay .headimg .img.data-v-c7954434 {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  border: 1px solid white;
+  z-index: 99;
+}
+.pay .account.data-v-c7954434 {
+  width: 90%;
+  height: 75%;
+  line-height: 20px;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: -100rpx;
+  padding: 0;
+}
+.pay .account .payment.data-v-c7954434 {
+  padding-top: 40px;
+}
+.pay .account .num.data-v-c7954434 {
+  color: orangered;
+}
+.pay .account .code .img.data-v-c7954434 {
+  width: 180px;
+  height: 180rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid #ccc;
+}
+.pay .account .text.data-v-c7954434 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.pay .account .text .txt2.data-v-c7954434 {
+  font-size: 13px;
+  font-weight: bold;
+}
+.pay .account .foot.data-v-c7954434 {
+  height: 50px;
+  width: 100%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+}
+.pay .account .foot .img.data-v-c7954434 {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+}
