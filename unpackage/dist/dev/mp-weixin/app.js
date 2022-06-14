@@ -6,11 +6,17 @@ if (!Math) {
   "./pages/index/index.js";
   "./pages/class/class.js";
   "./pages/cart/cart.js";
-  "./pages/me/me.js";
   "./pages/search/search.js";
   "./pages/introduce/introduce.js";
   "./pages/swiperdetail/swiperdetail.js";
   "./components/cartpop/cartpop.js";
+  "./pages/me/me.js";
+  "./pages/ldhmymessage/ldhmymessage.js";
+  "./pages/ldhcollection/ldhcollection.js";
+  "./pages/ldhscore/ldhscore.js";
+  "./pages/ldhdiscount/ldhdiscount.js";
+  "./pages/ldhcard/ldhcard.js";
+  "./pages/ldhbalance/ldhbalance.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -24,7 +30,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue\u5C0F\u7A0B\u5E8F\u9879\u76EE/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "F:/uni/vue/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   return {

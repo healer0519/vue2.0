@@ -1,0 +1,22 @@
+.tit.data-v-095861f0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.tit .tabItem.data-v-095861f0 {
+  flex: 1;
+}
+.tit .tabItem.active.data-v-095861f0 {
+  color: red;
+  border-bottom: 1px solid red;
+}
+.detail.data-v-095861f0 {
+  width: 100%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}

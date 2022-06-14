@@ -1,0 +1,44 @@
+.container .head .score.data-v-33ce8cc6 {
+  text-align: center;
+}
+.container .use.data-v-33ce8cc6 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .use .exchange.data-v-33ce8cc6 {
+  flex: 1;
+}
+.container .use .income.data-v-33ce8cc6 {
+  flex: 1;
+}
+.container .content .special.data-v-33ce8cc6 {
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.container .content .special text.data-v-33ce8cc6 {
+  margin-left: 20px;
+  border-left: 1px solid red;
+  padding-left: 10px;
+  font-size: 13px;
+}
+.container .content .all.data-v-33ce8cc6 {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.container .content .all .text.data-v-33ce8cc6 {
+  margin-left: 20px;
+  margin-top: 10px;
+  text-align: center;
+  width: 40px;
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  background-color: red;
+  border-radius: 12px;
+  font-size: 12px;
+}
