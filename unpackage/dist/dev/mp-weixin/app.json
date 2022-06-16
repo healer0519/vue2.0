@@ -13,7 +13,8 @@
     "pages/ldhscore/ldhscore",
     "pages/ldhdiscount/ldhdiscount",
     "pages/ldhcard/ldhcard",
-    "pages/ldhbalance/ldhbalance"
+    "pages/ldhbalance/ldhbalance",
+    "components/juan/juan"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -51,7 +52,7 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "tyutr"
+      "desc": "11111"
     }
   },
   "usingComponents": {}

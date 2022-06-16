@@ -17,6 +17,7 @@ if (!Math) {
   "./pages/ldhdiscount/ldhdiscount.js";
   "./pages/ldhcard/ldhcard.js";
   "./pages/ldhbalance/ldhbalance.js";
+  "./components/juan/juan.js";
 }
 const _sfc_main = {
   onLaunch: function() {

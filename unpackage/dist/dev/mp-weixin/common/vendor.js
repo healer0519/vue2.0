@@ -1423,13 +1423,13 @@ function populateParameters(fromRes, toRes) {
   let _SDKVersion = SDKVersion;
   const hostLanguage = language.replace(/_/g, "-");
   const parameters = {
-    appId: "",
-    appName: "vue\u5C0F\u7A0B\u5E8F\u9879\u76EE",
+    appId: "__UNI__960EC4C",
+    appName: "3",
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "3.4.14",
-    uniRuntimeVersion: "3.4.14",
+    uniCompileVersion: "3.4.15",
+    uniRuntimeVersion: "3.4.15",
     uniPlatform: "mp-weixin",
     deviceBrand,
     deviceModel: model,
@@ -1566,8 +1566,8 @@ const getAppBaseInfo = {
       hostName: _hostName,
       hostSDKVersion: SDKVersion,
       hostTheme: theme,
-      appId: "",
-      appName: "vue\u5C0F\u7A0B\u5E8F\u9879\u76EE",
+      appId: "__UNI__960EC4C",
+      appName: "3",
       appVersion: "1.0.0",
       appVersionCode: "100",
       appLanguage: getAppLanguage(hostLanguage)

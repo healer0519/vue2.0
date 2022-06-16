@@ -4,6 +4,17 @@ var common_JS_http = require("../../common/JS/http.js");
 const _sfc_main = {
   data() {
     return {
+      juanList: [
+        {
+          Rprice: 10,
+          MinPrice: 300
+        },
+        {
+          Rprice: 15,
+          MinPrice: 300
+        }
+      ],
+      isActive: 0,
       swiperlist: [
         {
           name: "\u6D2A\u4EC1\u5802\u4E13\u533A",
@@ -120,7 +131,7 @@ const _sfc_main = {
           {
             id: 350925,
             name: "\u9632\u62A4\u6D88\u6BD2",
-            icon: "/static/\u542C\u8BCA\u5668.png"
+            icon: "/static/\u610F\u89C1\u53CD\u9988.png"
           },
           {
             id: 350925,
@@ -167,6 +178,12 @@ const _sfc_main = {
     this.GethongbyId();
   },
   methods: {
+    open() {
+      this.$refs.popup.open("center");
+    },
+    close() {
+      this.$refs.popup.close();
+    },
     onSearch() {
       common_vendor.index.navigateTo({
         url: "/pages/search/search"
@@ -182,15 +199,17 @@ const _sfc_main = {
         url: `../swiperdetail/swiperdetail?id=${id}`
       });
     },
-    async GetContentbyId(id) {
+    Getjuan(item) {
+      if (item.Rprice == 15) {
+        this.open();
+      }
+    },
+    async GetContentbyId(id, idx) {
       let result = await common_JS_http.requestGet(`/web/index.php?_mall_id=22293&r=api/index/diy-goods&cat_id=${id}&goodsNum=30`);
-      console.log(result.data.list);
-      this.shoppingList = result.data.list;
-      console.log(this.shoppingList);
+      this.shoppingList = result.data.list, this.isActive = idx;
     },
     async GethongbyId() {
       let result = await common_JS_http.requestGet(`/web/index.php?_mall_id=22293&r=api/index/diy-goods&cat_id=351811&goodsNum=30`);
-      console.log(result.data.list);
       this.shoppingList = result.data.list;
     },
     change(e) {
@@ -200,84 +219,107 @@ const _sfc_main = {
 };
 if (!Array) {
   const _easycom_uni_notice_bar2 = common_vendor.resolveComponent("uni-notice-bar");
+  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
   const _easycom_uni_search_bar2 = common_vendor.resolveComponent("uni-search-bar");
   const _easycom_uni_grid_item2 = common_vendor.resolveComponent("uni-grid-item");
   const _easycom_uni_grid2 = common_vendor.resolveComponent("uni-grid");
   const _easycom_uni_title2 = common_vendor.resolveComponent("uni-title");
   const _easycom_cartpop2 = common_vendor.resolveComponent("cartpop");
-  (_easycom_uni_notice_bar2 + _easycom_uni_search_bar2 + _easycom_uni_grid_item2 + _easycom_uni_grid2 + _easycom_uni_title2 + _easycom_cartpop2)();
+  (_easycom_uni_notice_bar2 + _easycom_uni_popup2 + _easycom_uni_search_bar2 + _easycom_uni_grid_item2 + _easycom_uni_grid2 + _easycom_uni_title2 + _easycom_cartpop2)();
 }
 const _easycom_uni_notice_bar = () => "../../uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.js";
+const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 const _easycom_uni_search_bar = () => "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.js";
 const _easycom_uni_grid_item = () => "../../uni_modules/uni-grid/components/uni-grid-item/uni-grid-item.js";
 const _easycom_uni_grid = () => "../../uni_modules/uni-grid/components/uni-grid/uni-grid.js";
 const _easycom_uni_title = () => "../../uni_modules/uni-title/components/uni-title/uni-title.js";
 const _easycom_cartpop = () => "../../components/cartpop/cartpop2.js";
 if (!Math) {
-  (_easycom_uni_notice_bar + _easycom_uni_search_bar + _easycom_uni_grid_item + _easycom_uni_grid + _easycom_uni_title + _easycom_cartpop)();
+  (_easycom_uni_notice_bar + _easycom_uni_popup + _easycom_uni_search_bar + _easycom_uni_grid_item + _easycom_uni_grid + _easycom_uni_title + _easycom_cartpop)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.o(_ctx.notice),
+    a: common_vendor.o($options.open),
     b: common_vendor.p({
       showIcon: true,
       scrollable: true,
       single: true,
-      text: "\u5E97\u5185\u6240\u6709\u5546\u54C1\u6EE1300\u5305\u90AE"
+      text: "\u5E97\u5185\u6240\u6709\u5546\u54C1\u6EE1300\u5305\u90AE",
+      ["background-color"]: "#ff6666",
+      color: "white",
+      showGetMore: "true",
+      moreColor: "white"
     }),
-    c: common_vendor.o(_ctx.search),
-    d: common_vendor.p({
-      radius: 100
+    c: common_vendor.o((...args) => $options.close && $options.close(...args)),
+    d: common_vendor.sr("popup", "57280228-1"),
+    e: common_vendor.p({
+      type: "bottom"
     }),
-    e: common_vendor.o((...args) => $options.onSearch && $options.onSearch(...args)),
-    f: common_vendor.o((...args) => $options.onIntroduce && $options.onIntroduce(...args)),
-    g: common_vendor.f($data.swiperlist, (item, k0, i0) => {
+    f: common_vendor.p({
+      radius: 100,
+      cancelButton: "none"
+    }),
+    g: common_vendor.o(($event) => $options.onSearch()),
+    h: common_vendor.o((...args) => $options.onIntroduce && $options.onIntroduce(...args)),
+    i: common_vendor.f($data.swiperlist, (item, k0, i0) => {
       return {
         a: item.url,
         b: common_vendor.o(($event) => $options.ToSwiperdetail(item.id)),
         c: item.id
       };
     }),
-    h: common_vendor.f($data.gridList[0], (item, k0, i0) => {
+    j: common_vendor.f($data.gridList[0], (item, k0, i0) => {
       return {
         a: item.icon,
         b: common_vendor.o(($event) => $options.ToSwiperdetail(item.id)),
         c: common_vendor.t(item.name),
-        d: "57280228-3-" + i0 + ",57280228-2"
-      };
-    }),
-    i: common_vendor.p({
-      column: 4
-    }),
-    j: common_vendor.f($data.gridList[1], (item, k0, i0) => {
-      return {
-        a: item.icon,
-        b: common_vendor.o(($event) => $options.ToSwiperdetail(item.id)),
-        c: common_vendor.t(item.name),
-        d: "57280228-5-" + i0 + ",57280228-4"
+        d: "57280228-4-" + i0 + ",57280228-3"
       };
     }),
     k: common_vendor.p({
-      column: 4
+      column: 4,
+      showBorder: false
     }),
-    l: common_vendor.p({
+    l: common_vendor.f($data.gridList[1], (item, k0, i0) => {
+      return {
+        a: item.icon,
+        b: common_vendor.o(($event) => $options.ToSwiperdetail(item.id)),
+        c: common_vendor.t(item.name),
+        d: "57280228-6-" + i0 + ",57280228-5"
+      };
+    }),
+    m: common_vendor.p({
+      column: 4,
+      showBorder: false
+    }),
+    n: common_vendor.f($data.juanList, (item, k0, i0) => {
+      return {
+        a: common_vendor.t(item.Rprice),
+        b: common_vendor.t(item.MinPrice),
+        c: common_vendor.o(($event) => $options.Getjuan(item))
+      };
+    }),
+    o: common_vendor.p({
       type: "h2",
       title: "\u2014\u2014\u2014\u2014\u70ED\u9500\u4EA7\u54C1\u2014\u2014\u2014\u2014",
       align: "center"
     }),
-    m: common_vendor.f($data.shoppingnavList, (item, k0, i0) => {
+    p: common_vendor.f($data.shoppingnavList, (item, idx, i0) => {
       return {
         a: common_vendor.t(item.name),
-        b: common_vendor.o(($event) => $options.GetContentbyId(item.id))
+        b: common_vendor.n({
+          "active": $data.isActive === idx
+        }),
+        c: common_vendor.o(($event) => $options.GetContentbyId(item.id, idx))
       };
     }),
-    n: common_vendor.f($data.shoppingList, (item, k0, i0) => {
+    q: common_vendor.f($data.shoppingList, (item, k0, i0) => {
       return {
         a: item.cover_pic,
         b: common_vendor.t(item.name),
         c: common_vendor.t(item.price_content),
         d: common_vendor.t(item.original_price),
-        e: "57280228-7-" + i0,
+        e: "57280228-8-" + i0,
         f: common_vendor.p({
           item
         })

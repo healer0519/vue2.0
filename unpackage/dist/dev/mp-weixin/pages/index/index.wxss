@@ -1,9 +1,46 @@
 .container.data-v-57280228 .uni-noticebar {
   margin-bottom: 0px;
-  height: 80rpx;
+  height: 50rpx;
 }
 .container.data-v-57280228 .uni-searchbar {
   background-color: lightblue;
+}
+.container.data-v-57280228 .uni-searchbar__box {
+  height: 42rpx;
+}
+.container .noticepop.data-v-57280228 {
+  width: 600rpx;
+  height: 400rpx;
+  background-color: white;
+}
+.container .noticepop .head.data-v-57280228 {
+  height: 100rpx;
+  background-color: #FF6666;
+  text-align: center;
+}
+.container .noticepop .head text.data-v-57280228 {
+  font-size: 30rpx;
+  line-height: 100rpx;
+  color: white;
+}
+.container .noticepop .content.data-v-57280228 {
+  text-align: center;
+  height: 500rpx;
+}
+.container .noticepop .content text.data-v-57280228 {
+  margin-top: 50rpx;
+  display: inline-block;
+  height: 150rpx;
+}
+.container .noticepop .content button.data-v-57280228 {
+  background-color: #FF6666;
+  width: 400rpx;
+  height: 50rpx;
+  border: 0px;
+  border-radius: 50rpx;
+  line-height: 50rpx;
+  font-size: 25rpx;
+  color: white;
 }
 .container .introduce image.data-v-57280228 {
   width: 100%;
@@ -13,6 +50,13 @@
 }
 .container .gridSwiper.data-v-57280228 {
   height: 375rpx;
+}
+.container .gridSwiper .swiper-item.data-v-57280228 {
+  text-align: center;
+  font-size: 25rpx;
+}
+.container .gridSwiper .swiper-item image.data-v-57280228 {
+  margin: 10px auto;
 }
 .container .juan.data-v-57280228 {
   display: flex;
@@ -24,84 +68,15 @@
   height: 150rpx;
   box-sizing: border-box;
 }
-.container .juan .l-tickets.data-v-57280228 {
+.container .juan .tickets .l-tickets.data-v-57280228 {
   width: 75%;
   background: skyblue;
-}
-.container .juan .r-tickets.data-v-57280228 {
-  flex: 1;
-  background: orchid;
-}
-.container .juan .l-tickets.data-v-57280228 {
-  width: 75%;
   height: 100%;
   position: relative;
-}
-.container .juan .l-tickets.data-v-57280228::after {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 8rpx;
-  top: 0;
-  left: -8rpx;
-  /* 
-			    	语法：
-			    	background:bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; 
-			    	radial-gradient(shape size at position, start-color, ..., last-color);
-			    */
-  background: radial-gradient(circle at left center, transparent 8rpx, skyblue 0) left center / 8rpx 20rpx;
-}
-.container .juan .r-tickets.data-v-57280228 {
-  flex: 1;
-  position: relative;
-}
-.container .juan .r-tickets.data-v-57280228::after {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 8rpx;
-  top: 0;
-  right: -8rpx;
-  background: radial-gradient(circle at right center, transparent 8rpx, orchid 0) right center / 8rpx 20rpx;
-}
-.container .juan .l-tickets.data-v-57280228 {
-  width: 75%;
-  height: 100%;
-  position: relative;
-  background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
-}
-.container .juan .r-tickets.data-v-57280228 {
-  position: relative;
-  background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
-}
-.container .juan .r-tickets.data-v-57280228::before {
-  content: '';
-  width: 1rpx;
-  background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
-  position: absolute;
-  left: 0;
-  top: 16rpx;
-  bottom: 16rpx;
-}
-.container .juan .l-tickets.data-v-57280228 {
-  width: 75%;
-  height: 100%;
-  position: relative;
-  background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
+  background: radial-gradient(circle at right top, transparent 16rpx, red 0, #FF8888 100%) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, red 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
   filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, 0.3));
 }
-.container .juan .r-tickets.data-v-57280228 {
-  position: relative;
-  background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
-  filter: drop-shadow(3px 0 3px rgba(0, 0, 0, 0.3));
-}
-.container .juan .l-tickets.data-v-57280228 {
-  width: 75%;
-  position: relative;
-  background: radial-gradient(circle at right top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat, radial-gradient(circle at right bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
-  filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, 0.3));
-}
-.container .juan .l-tickets.data-v-57280228::after {
+.container .juan .tickets .l-tickets.data-v-57280228::after {
   content: '';
   position: absolute;
   height: 100%;
@@ -110,22 +85,35 @@
   left: -8rpx;
   background: radial-gradient(circle at left center, transparent 8rpx, #FF8888 0) left center / 8rpx 20rpx;
 }
-.container .juan .r-tickets.data-v-57280228 {
+.container .juan .tickets .l-tickets .l-tickets-head.data-v-57280228 {
+  line-height: 60rpx;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
+  border-bottom: 1px solid white;
+  font-size: 25rpx;
+  box-sizing: border-box;
+}
+.container .juan .tickets .l-tickets .l-tickets-foot.data-v-57280228 {
+  line-height: 60rpx;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
+  font-size: 20rpx;
+  box-sizing: border-box;
+}
+.container .juan .tickets .r-tickets.data-v-57280228 {
   flex: 1;
+  background: orchid;
   position: relative;
-  background: radial-gradient(circle at left top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+  background: radial-gradient(circle at left top, transparent 16rpx, red 0, #FF8888 100%) right top / 100% 50% no-repeat, radial-gradient(circle at left bottom, transparent 16rpx, red 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
   filter: drop-shadow(3px 0 3px rgba(0, 0, 0, 0.3));
 }
-.container .juan .r-tickets.data-v-57280228::before {
-  content: '';
-  width: 1rpx;
-  background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
-  position: absolute;
-  left: 0;
-  top: 16rpx;
-  bottom: 16rpx;
-}
-.container .juan .r-tickets.data-v-57280228::after {
+.container .juan .tickets .r-tickets.data-v-57280228::after {
   content: '';
   position: absolute;
   height: 100%;
@@ -134,17 +122,40 @@
   right: -8rpx;
   background: radial-gradient(circle at right center, transparent 8rpx, #FF8888 0) right center / 8rpx 20rpx;
 }
+.container .juan .tickets .r-tickets.data-v-57280228::before {
+  content: '';
+  width: 1rpx;
+  background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
+  position: absolute;
+  left: 0;
+  top: 16rpx;
+  bottom: 16rpx;
+}
+.container .juan .tickets .r-tickets .r-tickets-content.data-v-57280228 {
+  margin-left: 35rpx;
+  width: 25rpx;
+  font-size: 20rpx;
+  color: white;
+  height: 100%;
+}
 .container.data-v-57280228 .uni-title__box {
   padding: 0px;
   background-color: lightblue;
 }
 .container .shoppingnav.data-v-57280228 {
+  height: 50rpx;
   width: 100%;
   white-space: nowrap;
   padding: 10rpx 30rpx;
+  font-size: 30rpx;
 }
 .container .shoppingnav .item.data-v-57280228 {
   margin-right: 50rpx;
+}
+.container .shoppingnav .item.active.data-v-57280228 {
+  color: #f0160f;
+  border-bottom: 1px solid #f0160f;
+  box-sizing: border-box;
 }
 .container .shoppingContent .shoppingitem.data-v-57280228 {
   background-color: white;
@@ -176,7 +187,4 @@
   font-size: 20rpx;
   color: gray;
   text-decoration: line-through;
-}
-.container .gridSwiper .swiper-item.data-v-57280228 {
-  background-image: url("../../static/swiper1.jpg");
 }
