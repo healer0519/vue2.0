@@ -7,6 +7,21 @@ const _sfc_main = {
     };
   },
   methods: {
+    tozuji() {
+      common_vendor.index.navigateTo({
+        url: "/components/zuji/zuji"
+      });
+    },
+    toshouhuo() {
+      common_vendor.index.navigateTo({
+        url: "../../components/shouhuoyemian/shouhuoyemian"
+      });
+    },
+    tomyorder() {
+      common_vendor.index.navigateTo({
+        url: "/components/myorder/myorder"
+      });
+    },
     getUserProfile(e) {
       wx.getUserProfile({
         desc: "\u7528\u4E8E\u5B8C\u5584\u4F1A\u5458\u8D44\u6599",
@@ -63,30 +78,21 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       size: "20",
       color: "white"
     }),
-    e: common_vendor.o((...args) => $options.getUserProfile && $options.getUserProfile(...args)),
-    f: common_vendor.p({
+    e: common_vendor.o((...args) => $options.toshouhuo && $options.toshouhuo(...args)),
+    f: common_vendor.o((...args) => $options.getUserProfile && $options.getUserProfile(...args)),
+    g: common_vendor.p({
       type: "star-filled",
       size: "30",
       color: "white"
     }),
-    g: common_vendor.o((...args) => $options.tocollection && $options.tocollection(...args)),
-    h: common_vendor.p({
-      type: "star-filled",
-      size: "30",
-      color: "white"
-    }),
+    h: common_vendor.o((...args) => $options.tocollection && $options.tocollection(...args)),
     i: common_vendor.p({
-      type: "wallet-filled",
-      size: "20"
+      type: "star-filled",
+      size: "30",
+      color: "white"
     }),
-    j: common_vendor.p({
-      type: "wallet-filled",
-      size: "20"
-    }),
-    k: common_vendor.p({
-      type: "wallet-filled",
-      size: "20"
-    }),
+    j: common_vendor.o((...args) => $options.tozuji && $options.tozuji(...args)),
+    k: common_vendor.o((...args) => $options.tomyorder && $options.tomyorder(...args)),
     l: common_vendor.p({
       type: "wallet-filled",
       size: "20"
@@ -95,10 +101,22 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       type: "wallet-filled",
       size: "20"
     }),
-    n: common_vendor.o((...args) => $options.toscore && $options.toscore(...args)),
-    o: common_vendor.o((...args) => $options.todiscount && $options.todiscount(...args)),
-    p: common_vendor.o((...args) => $options.tocard && $options.tocard(...args))
+    n: common_vendor.p({
+      type: "wallet-filled",
+      size: "20"
+    }),
+    o: common_vendor.p({
+      type: "wallet-filled",
+      size: "20"
+    }),
+    p: common_vendor.p({
+      type: "wallet-filled",
+      size: "20"
+    }),
+    q: common_vendor.o((...args) => $options.toscore && $options.toscore(...args)),
+    r: common_vendor.o((...args) => $options.todiscount && $options.todiscount(...args)),
+    s: common_vendor.o((...args) => $options.tocard && $options.tocard(...args))
   };
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-259fb574"], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue\u5C0F\u7A0B\u5E8F\u9879\u76EE/pages/me/me.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-259fb574"], ["__file", "A:/vs code/uni-ui/vue/pages/me/me.vue"]]);
 wx.createPage(MiniProgramPage);

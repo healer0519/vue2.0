@@ -1,0 +1,14 @@
+.box.data-v-030c3b20 {
+  padding: 12px;
+}
+.box.data-v-030c3b20 uni-forms {
+  background-color: white !important;
+}
+.box.data-v-030c3b20 uni-forms uni-forms-item {
+  border: 0px #fff solid;
+}
+.box button.data-v-030c3b20 {
+  border-radius: 20px;
+  background-color: red;
+  color: white;
+}

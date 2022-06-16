@@ -95,6 +95,51 @@
 				"enablePullDownRefresh": false
 			}
 
+		},
+		// 收货地址页面
+		{
+			"path": "components/shouhuoyemian/shouhuoyemian",
+			"style": {
+				"navigationBarTitleText": "收货地址",
+				"enablePullDownRefresh": false
+			}
+		
+		},
+		// 添加收货地址页面
+		{
+			"path": "components/tianjiayemian/tianjiayemian",
+			"style": {
+				"navigationBarTitleText": "添加收货地址",
+				"enablePullDownRefresh": false
+			}
+		
+		},
+		// 添加足迹地址页面
+		{
+			"path": "components/zuji/zuji",
+			"style": {
+				"navigationBarTitleText": "我的足迹",
+				"enablePullDownRefresh": false
+			}
+		
+		},
+		// 添加我的订单页面
+		{
+			"path": "components/myorder/myorder",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"enablePullDownRefresh": false
+			}
+		
+		},
+		// 添加商品详情页面
+		{
+			"path": "components/spxiangqing/spxiangqing",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false
+			}
+		
 		}
 	],
 	"globalStyle": {

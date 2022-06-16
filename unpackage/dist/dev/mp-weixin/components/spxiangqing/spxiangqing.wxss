@@ -1,0 +1,65 @@
+.box .lunbo uni-swiper-dot .swiper-box.data-v-6f1cc880 {
+  width: 375.2px;
+  height: 375.2px;
+}
+.box .lunbo uni-swiper-dot .swiper-box.data-v-6f1cc880 .swiper-item1 {
+  width: 375.2px !important;
+}
+.box .lunbo uni-swiper-dot .swiper-box.data-v-6f1cc880 .swiper-item1 .swiper-item {
+  width: 375.2px;
+  height: 375.2px;
+}
+.box .lunbo uni-swiper-dot .swiper-box.data-v-6f1cc880 .swiper-item1 .swiper-item image {
+  width: 100vw;
+}
+.box .box1.data-v-6f1cc880 .item {
+  padding: 5px 5px !important;
+}
+.box .box1.data-v-6f1cc880 .item .box1-1 .jiage {
+  color: red;
+  font-size: 36px;
+  font-weight: 500;
+}
+.box .box1.data-v-6f1cc880 .item .box1-1 .yuanjia {
+  color: #bbb;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: line-through;
+  margin-top: 0px;
+}
+.box .box1.data-v-6f1cc880 .item .box1-2 uni-tag {
+  margin-right: 10px;
+}
+.box .xuanzekuang .gonggaokuang.data-v-6f1cc880 {
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+}
+.box .xuanzekuang .gonggaokuang .box2.data-v-6f1cc880 {
+  padding: 10px;
+}
+.box .xuanzekuang .gonggaokuang .box2 uni-card.data-v-6f1cc880 {
+  border: none !important;
+}
+.box .xuanzekuang .gonggaokuang .box3.data-v-6f1cc880 {
+  border-bottom: 1px #bbb solid;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 10px;
+}
+.box .xuanzekuang .gonggaokuang .box3 .text.data-v-6f1cc880 {
+  flex: 1;
+  display: block;
+}
+.box .xuanzekuang .gonggaokuang .box3 uni-number-box.data-v-6f1cc880 {
+  flex: 4;
+  margin-left: 220px;
+  margin-bottom: 15px;
+}
+.box .xuanzekuang .gonggaokuang .box3 .box4.data-v-6f1cc880 {
+  margin-top: 15px;
+}
+.box .xuanzekuang .gonggaokuang .box3 .box4.data-v-6f1cc880 .box4-1 uni-tab__cart-box {
+  padding: 10px !important;
+}

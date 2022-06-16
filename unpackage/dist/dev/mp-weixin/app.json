@@ -13,7 +13,12 @@
     "pages/ldhscore/ldhscore",
     "pages/ldhdiscount/ldhdiscount",
     "pages/ldhcard/ldhcard",
-    "pages/ldhbalance/ldhbalance"
+    "pages/ldhbalance/ldhbalance",
+    "components/shouhuoyemian/shouhuoyemian",
+    "components/tianjiayemian/tianjiayemian",
+    "components/zuji/zuji",
+    "components/myorder/myorder",
+    "components/spxiangqing/spxiangqing"
   ],
   "window": {
     "navigationBarTextStyle": "black",

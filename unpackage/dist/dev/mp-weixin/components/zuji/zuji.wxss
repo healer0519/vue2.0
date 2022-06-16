@@ -1,0 +1,17 @@
+.btn.data-v-0d71eac4 {
+  color: red;
+  background-color: transparent;
+}
+.btn.active.data-v-0d71eac4 {
+  color: white;
+  background-color: red;
+}
+.btn1.data-v-0d71eac4 {
+  border: 1px #fff solid;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.btn1.active1.data-v-0d71eac4 {
+  color: white;
+  background-color: red;
+}

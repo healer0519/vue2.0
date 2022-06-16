@@ -11,7 +11,7 @@
 						<uni-icons type="location" size="20" color="white"></uni-icons>
 					</view>
 					<view class="item2">
-						<text>收货地址</text>
+						<text @click="toshouhuo">收货地址</text>
 					</view>
 					
 					
@@ -42,7 +42,7 @@
 					<view class="">
 						0
 					</view>
-					<view class="inner">
+					<view class="inner" @click="tozuji">
 						<view class="icon">
 							<uni-icons type="star-filled" size="30" color="white"></uni-icons>
 						</view>
@@ -58,8 +58,9 @@
 		</view>
 
 		<view class="order">
-			<view class="title">
-				我的订单
+			<view class="title" style="display: flex;">
+				<text style="flex: 4;">我的订单</text>
+				<text style="flex: 1;font-size: 12px;color: gray;" @click="tomyorder">查看更多></text>
 			</view>
 			<view class="state">
 				<view class="item">
@@ -144,6 +145,21 @@
 			}
 		},
 		methods: {
+			tozuji(){
+				uni.navigateTo({
+					url:'/components/zuji/zuji'
+				})
+			},
+			toshouhuo(){
+				uni.navigateTo({
+					url:"../../components/shouhuoyemian/shouhuoyemian"
+				})
+			},
+			tomyorder(){
+				uni.navigateTo({
+					url:'/components/myorder/myorder'
+				})
+			},
 			getUserProfile(e) {
 				wx.getUserProfile({
 					desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
