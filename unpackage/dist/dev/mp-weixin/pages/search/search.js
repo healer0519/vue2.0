@@ -1,18 +1,40 @@
 "use strict";
-var common_JS_http = require("../../common/JS/http.js");
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var common_vendor = require("../../common/vendor.js");
+var common_JS_http = require("../../common/JS/http.js");
 const _sfc_main = {
   data() {
     return {
       hotList: {},
-      historyList: [],
-      searchList: {}
+      searchList: {},
+      content: ""
     };
   },
   created() {
     this.GetHotList();
   },
-  methods: {
+  computed: __spreadValues({}, common_vendor.mapState({
+    historyList: "historyList"
+  })),
+  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["changehistoryList", "deletehistoryList"])), {
     async GetHotList() {
       let result = await common_JS_http.requestGet("/web/index.php?_mall_id=22293&r=/api/goods/hot-search");
       result.code == 0 ? this.hotList = result.data.list : "";
@@ -23,14 +45,20 @@ const _sfc_main = {
       console.log(this.searchList);
     },
     Getinput(event) {
-      this.historyList.push(event.value);
+      this.changehistoryList(event);
       this.GetListByKey(event.value);
     },
     clear(e) {
-      this.historyList = [];
       this.searchList = {};
+    },
+    clearhistory() {
+      this.deletehistoryList();
+    },
+    pushContent(item) {
+      console.log(item);
+      this.content = item;
     }
-  }
+  })
 };
 if (!Array) {
   const _easycom_uni_search_bar2 = common_vendor.resolveComponent("uni-search-bar");
@@ -46,25 +74,25 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.o($options.Getinput),
     b: common_vendor.o($options.clear),
-    c: common_vendor.o(($event) => _ctx.key = $event),
+    c: common_vendor.o(($event) => $data.content = $event),
     d: common_vendor.p({
       radius: 100,
       cancelButton: "none",
-      modelValue: _ctx.key
+      modelValue: $data.content
     }),
-    e: common_vendor.o($options.clear),
+    e: common_vendor.o(($event) => $options.clearhistory()),
     f: common_vendor.p({
       type: "trash",
       size: "20",
       color: "lightgray"
     }),
-    g: common_vendor.f($data.historyList, (item, k0, i0) => {
+    g: common_vendor.f(_ctx.$store.state.historyList, (item, k0, i0) => {
       return {
         a: common_vendor.t(item),
-        b: common_vendor.o(($event) => _ctx.putinput(item))
+        b: common_vendor.o(($event) => $options.pushContent(item))
       };
     }),
-    h: $data.historyList.length != 0,
+    h: _ctx.historyList.length != 0,
     i: JSON.stringify($data.searchList) == "{}",
     j: common_vendor.f($data.hotList, (item, index, i0) => {
       return {
@@ -86,5 +114,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     m: JSON.stringify($data.searchList) != "{}"
   };
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-4cedc0c6"], ["__file", "A:/vs code/uni-ui/vue/pages/search/search.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-4cedc0c6"], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/pages/search/search.vue"]]);
 wx.createPage(MiniProgramPage);

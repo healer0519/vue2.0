@@ -1,6 +1,9 @@
 import {
 	createStore
 } from "vuex";
+import {
+	requestGet
+} from "/common/JS/http.js"
 
 export default createStore({
 	state: {
@@ -9,8 +12,50 @@ export default createStore({
 		zujidatas: uni.getStorageSync('zujidatas') || [],
 		shoucangdatas: uni.getStorageSync('shoucangdatas') || [],
 		selectzuji: uni.getStorageSync('selectzuji') || [],
+		historyList: uni.getStorageSync('historyList') || [],
+		userInfo: {
+			avatarUrl: "",
+			nickName: ""
+		},
+		youhui: {
+			num: "",
+			msg1: "",
+			msg2: ""
+		},
+		youhui2: {
+			num: "",
+			msg1: "",
+			msg2: ""
+		},
+		
+		goodsdetailList: {},
+		currentgoods: {},
+		currentgoodsList: [],
 	},
 	mutations: {
+
+		save(state, payload) {
+			// console.log(payload)
+			state.userInfo.avatarUrl = payload.avatarUrl
+			state.userInfo.nickName = payload.nickName
+			uni.setStorageSync('userInfo', state.userInfo)
+			console.log(state.userInfo)
+		},
+		saveCoupon(state, payload) {
+			// console.log(payload)
+			state.youhui.num = payload.num
+			state.youhui.msg1 = payload.msg1
+			state.youhui.msg2 = payload.msg2
+			// console.log(state.youhui)
+		},
+		saveCoupon2(state, payload) {
+			// console.log(payload)
+			state.youhui2.num = payload.num
+			state.youhui2.msg1 = payload.msg1
+			state.youhui2.msg2 = payload.msg2
+			// console.log(state.youhui2)
+		},
+
 		// ws 添加地址
 		addAddress(state, payload) {
 			console.log(payload)
@@ -101,7 +146,7 @@ export default createStore({
 						duration: 2000,
 						icon: "error"
 					})
-					
+
 				}
 			}
 			uni.setStorageSync('selectzuji', state.selectzuji)
@@ -166,7 +211,7 @@ export default createStore({
 							state.selectzuji.push(state.zujidatas[i])
 						}
 					}
-					uni.setStorageSync('selectzuji',state.selectzuji)
+					uni.setStorageSync('selectzuji', state.selectzuji)
 					break;
 				case 2:
 					let a2 = date.setDate(date.getDate() - 1)
@@ -190,20 +235,43 @@ export default createStore({
 							state.selectzuji.push(state.zujidatas[i])
 						}
 					}
-					uni.setStorageSync('selectzuji',state.selectzuji)
+					uni.setStorageSync('selectzuji', state.selectzuji)
 					break;
 				case 3:
-					state.selectzuji=state.zujidatas
+					state.selectzuji = state.zujidatas
 					break;
 				case 4:
-					state.selectzuji=state.zujidatas
+					state.selectzuji = state.zujidatas
 					break;
 				case 5:
-					state.selectzuji=state.zujidatas
+					state.selectzuji = state.zujidatas
 					break;
 			}
-		console.log(state.selectzuji)
-		uni.setStorageSync('selectzuji', state.selectzuji)
+			console.log(state.selectzuji)
+			uni.setStorageSync('selectzuji', state.selectzuji)
+		},
+
+		changehistoryList(state, value) {
+			
+			state.historyList.push(value.value)
+			uni.setStorageSync('historyList', state.historyList)
+			// console.log(value.value)
+		},
+		deletehistoryList(state) {
+			state.historyList = []
+			uni.setStorageSync('historyList', state.historyList)
+		},
+		async GetgoodsdetailbyId(state, options) {
+			console.log(options, 'xxxx')
+			let result = await requestGet(
+				`/web/index.php?_mall_id=22293&r=api/goods/detail&id=${options.goods_id}&plugin=mall`);
+			result.code == 0 ? state.goodsdetailList = result.data.goods : ""
+			for (var i = 0; i < state.goodsdetailList.attr.length; i++) {
+				if (state.goodsdetailList.attr[i].id == options.id)
+					state.currentgoods = state.goodsdetailList.attr[i]
+
+			}
+			state.currentgoodsList = state.currentgoods.attr_list[0]
+		},
 	}
-}
 })

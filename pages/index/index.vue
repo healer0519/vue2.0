@@ -84,8 +84,8 @@
 
 		</scroll-view>
 		<view class="shoppingContent">
-			<view class="shoppingitem" v-for="item in shoppingList" @click="toxiangqing(item,item.id)">
-				<image :src="item.cover_pic" mode=""></image>
+			<view class="shoppingitem" v-for="item in shoppingList">
+				<image :src="item.cover_pic" mode="" @click="tospxiangqing(item,item.id)"></image>
 
 				<view class="des">
 					<view class="itemname">{{item.name}}</view>
@@ -101,9 +101,9 @@
 </template>
 
 <script>
-	import {
-		mapMutations
-	} from "vuex"
+		import {
+			mapMutations
+		} from "vuex"
 	import {
 		requestGet
 	} from "../../common/JS/http.js"
@@ -282,11 +282,11 @@
 			this.GethongbyId()
 		},
 		methods: {
+			// 
 			...mapMutations(['addzuji']),
-			toxiangqing(item,key) {
-				// console.log(key)
+			tospxiangqing(item,key) {
 				uni.navigateTo({
-					url: `../../components/spxiangqing/spxiangqing?id=${key}`
+					url: `/components/spxiangqing/spxiangqing?id=${key}`
 				})
 				this.addzuji(item)
 			},

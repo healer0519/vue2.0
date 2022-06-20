@@ -1,0 +1,16 @@
+.tit.data-v-2be8b766 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.tit .tabItem.data-v-2be8b766 {
+  flex: 1;
+}
+.tit .tabItem.active.data-v-2be8b766 {
+  color: red;
+  border-bottom: 1px solid red;
+}

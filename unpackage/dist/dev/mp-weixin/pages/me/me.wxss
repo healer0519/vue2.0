@@ -31,7 +31,7 @@
   margin-left: 20rpx;
 }
 .container .head .thead .address.data-v-259fb574 {
-  border: 1px solid black;
+  border: 1px solid white;
   border-right: none;
   border-radius: 50rpx 0 0 50rpx;
   display: flex;
@@ -74,10 +74,18 @@
   margin-top: -60rpx;
   background-color: white;
   border-radius: 16rpx;
+  border: 1px solid #ccc;
 }
 .container .order .title.data-v-259fb574 {
   margin-top: 10rpx;
   margin-left: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.container .order .title .item2.data-v-259fb574 {
+  margin-right: 20rpx;
+  font-size: 10px;
+  color: #777;
 }
 .container .order .state.data-v-259fb574 {
   display: flex;

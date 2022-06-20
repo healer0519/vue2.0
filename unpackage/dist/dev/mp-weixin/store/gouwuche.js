@@ -1,14 +1,49 @@
 "use strict";
 var common_vendor = require("../common/vendor.js");
+var common_JS_http = require("../common/JS/http.js");
 var store = common_vendor.createStore({
   state: {
     address: common_vendor.index.getStorageSync("address") || [],
     logindatas: common_vendor.index.getStorageSync("logindatas") || [],
     zujidatas: common_vendor.index.getStorageSync("zujidatas") || [],
     shoucangdatas: common_vendor.index.getStorageSync("shoucangdatas") || [],
-    selectzuji: common_vendor.index.getStorageSync("selectzuji") || []
+    selectzuji: common_vendor.index.getStorageSync("selectzuji") || [],
+    historyList: common_vendor.index.getStorageSync("historyList") || [],
+    userInfo: {
+      avatarUrl: "",
+      nickName: ""
+    },
+    youhui: {
+      num: "",
+      msg1: "",
+      msg2: ""
+    },
+    youhui2: {
+      num: "",
+      msg1: "",
+      msg2: ""
+    },
+    goodsdetailList: {},
+    currentgoods: {},
+    currentgoodsList: []
   },
   mutations: {
+    save(state, payload) {
+      state.userInfo.avatarUrl = payload.avatarUrl;
+      state.userInfo.nickName = payload.nickName;
+      common_vendor.index.setStorageSync("userInfo", state.userInfo);
+      console.log(state.userInfo);
+    },
+    saveCoupon(state, payload) {
+      state.youhui.num = payload.num;
+      state.youhui.msg1 = payload.msg1;
+      state.youhui.msg2 = payload.msg2;
+    },
+    saveCoupon2(state, payload) {
+      state.youhui2.num = payload.num;
+      state.youhui2.msg1 = payload.msg1;
+      state.youhui2.msg2 = payload.msg2;
+    },
     addAddress(state, payload) {
       console.log(payload);
       if (payload.name == "" || payload.txt == "" || payload.xxaddress == "" || payload.phone == "") {
@@ -184,6 +219,24 @@ var store = common_vendor.createStore({
       }
       console.log(state.selectzuji);
       common_vendor.index.setStorageSync("selectzuji", state.selectzuji);
+    },
+    changehistoryList(state, value) {
+      state.historyList.push(value.value);
+      common_vendor.index.setStorageSync("historyList", state.historyList);
+    },
+    deletehistoryList(state) {
+      state.historyList = [];
+      common_vendor.index.setStorageSync("historyList", state.historyList);
+    },
+    async GetgoodsdetailbyId(state, options) {
+      console.log(options, "xxxx");
+      let result = await common_JS_http.requestGet(`/web/index.php?_mall_id=22293&r=api/goods/detail&id=${options.goods_id}&plugin=mall`);
+      result.code == 0 ? state.goodsdetailList = result.data.goods : "";
+      for (var i = 0; i < state.goodsdetailList.attr.length; i++) {
+        if (state.goodsdetailList.attr[i].id == options.id)
+          state.currentgoods = state.goodsdetailList.attr[i];
+      }
+      state.currentgoodsList = state.currentgoods.attr_list[0];
     }
   }
 });

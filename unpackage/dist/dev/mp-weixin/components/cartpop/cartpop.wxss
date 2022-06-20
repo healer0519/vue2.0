@@ -69,13 +69,18 @@
   position: relative;
   margin-bottom: 20rpx;
 }
+.popcontent .middle .gooditemcard.active.data-v-18e27730 {
+  border: 1rpx solid red;
+  box-sizing: border-box;
+}
 .popcontent .middle .gooditemcard .lookimage.data-v-18e27730 {
   position: absolute;
   top: 20rpx;
   right: 20rpx;
-  background-color: red;
+  background-color: lightgray;
   width: 40rpx;
   height: 40rpx;
+  border-radius: 10rpx;
 }
 .popcontent .middle .gooditemcard image.data-v-18e27730 {
   width: 100%;

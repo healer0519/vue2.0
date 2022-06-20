@@ -13,6 +13,53 @@
 .tit .tabItem.active.data-v-975d7d2c {
   border-bottom: 1px solid red;
 }
+.if.data-v-975d7d2c,
+.if2.data-v-975d7d2c {
+  margin: 26rpx;
+  height: 150rpx;
+  background-color: chocolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.if .left.data-v-975d7d2c,
+.if2 .left.data-v-975d7d2c {
+  width: 170rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: chocolate;
+}
+.if .left text.data-v-975d7d2c:first-child,
+.if2 .left text.data-v-975d7d2c:first-child {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20rpx;
+}
+.if .left text.data-v-975d7d2c:last-child,
+.if2 .left text.data-v-975d7d2c:last-child {
+  color: white;
+  font-size: 10px;
+}
+.if .right.data-v-975d7d2c,
+.if2 .right.data-v-975d7d2c {
+  flex: 1;
+  height: 100%;
+  background-color: antiquewhite;
+}
+.if .right .msg1.data-v-975d7d2c,
+.if2 .right .msg1.data-v-975d7d2c {
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+.if .right .txt.data-v-975d7d2c,
+.if2 .right .txt.data-v-975d7d2c {
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  font-size: 10px;
+  color: #777;
+}
 .detail.data-v-975d7d2c {
   width: 100%;
   height: 200px;

@@ -1,0 +1,50 @@
+.container.data-v-f8ce61f4 {
+  margin: 15px;
+}
+.container .card1 .head.data-v-f8ce61f4,
+.container .card2 .head.data-v-f8ce61f4 {
+  height: 80px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: chocolate;
+}
+.container .card1 .head.active.data-v-f8ce61f4,
+.container .card2 .head.active.data-v-f8ce61f4 {
+  background-color: gray;
+}
+.container .card1 .head .item1.data-v-f8ce61f4,
+.container .card2 .head .item1.data-v-f8ce61f4 {
+  font-size: 30px;
+  color: white;
+}
+.container .card1 .head .item2.data-v-f8ce61f4,
+.container .card2 .head .item2.data-v-f8ce61f4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10px;
+  color: white;
+}
+.container .card1 .head .item3.data-v-f8ce61f4,
+.container .card2 .head .item3.data-v-f8ce61f4 {
+  height: 20px;
+  line-height: 20px;
+  width: 60px;
+  text-align: center;
+  font-size: 13px;
+  background-color: #dee;
+  color: chocolate;
+  border-radius: 20px;
+}
+.container .card1 .explain.data-v-f8ce61f4,
+.container .card2 .explain.data-v-f8ce61f4 {
+  padding-top: 10px;
+  padding-left: 10px;
+  height: 30px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 15px;
+}

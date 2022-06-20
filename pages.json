@@ -96,6 +96,36 @@
 			}
 
 		},
+		{
+			"path": "pages/ldhget/ldhget",
+			"style": {
+				"navigationBarTitleText": "领券中心",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhconvert/ldhconvert",
+			"style": {
+				"navigationBarTitleText": "我的兑换",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ldhgrade/ldhgrade",
+			"style": {
+				"navigationBarTitleText": "积分明细",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		 {
+			"path": "pages/sum/sum",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
 		// 收货地址页面
 		{
 			"path": "components/shouhuoyemian/shouhuoyemian",
@@ -103,7 +133,7 @@
 				"navigationBarTitleText": "收货地址",
 				"enablePullDownRefresh": false
 			}
-		
+
 		},
 		// 添加收货地址页面
 		{
@@ -112,7 +142,7 @@
 				"navigationBarTitleText": "添加收货地址",
 				"enablePullDownRefresh": true
 			}
-		
+
 		},
 		// 添加足迹地址页面
 		{
@@ -121,7 +151,7 @@
 				"navigationBarTitleText": "我的足迹",
 				"enablePullDownRefresh": false
 			}
-		
+
 		},
 		// 添加我的订单页面
 		{
@@ -130,7 +160,7 @@
 				"navigationBarTitleText": "我的订单",
 				"enablePullDownRefresh": false
 			}
-		
+
 		},
 		// 添加商品详情页面
 		{
@@ -139,17 +169,15 @@
 				"navigationBarTitleText": "商品详情",
 				"enablePullDownRefresh": false
 			}
-		
-		}
-	    ,{
-            "path" : "components/juan/juan",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        },
+
+		}, {
+			"path": "components/juan/juan",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
 		// 添加会员详情页面
 		{
 			"path": "components/huiyuan/huiyuan",
@@ -157,9 +185,9 @@
 				"navigationBarTitleText": "会员",
 				"enablePullDownRefresh": false
 			}
-		
+
 		}
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

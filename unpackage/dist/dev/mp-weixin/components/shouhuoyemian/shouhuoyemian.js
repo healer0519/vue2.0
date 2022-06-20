@@ -132,7 +132,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     k: $data.serachren.name,
     l: common_vendor.o(($event) => $options.totianjia($data.serachren.name)),
     m: common_vendor.o(($event) => $options.del($data.serachren.name)),
-    n: common_vendor.sr("popup1", "0b9ff360-1"),
+    n: common_vendor.sr("popup1", "16287724-1"),
     o: common_vendor.p({
       type: "center",
       ["mask-click"]: true,
@@ -141,5 +141,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     p: common_vendor.o((...args) => $options.radiochange && $options.radiochange(...args))
   };
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "A:/vs code/uni-ui/vue/components/shouhuoyemian/shouhuoyemian.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/components/shouhuoyemian/shouhuoyemian.vue"]]);
 wx.createPage(MiniProgramPage);

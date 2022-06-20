@@ -50,11 +50,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     t: $data.tl == 4 ? 1 : "",
     v: common_vendor.o(($event) => $options.tlt(4))
   } : {}, {
-    m: $data.num === 2
+    m: $data.num === 2,
+    w: common_vendor.t(_ctx.$store.state.shoucangdatas)
   }) : $data.current === 2 ? {} : $data.current === 3 ? {} : {}, {
-    w: $data.current === 2,
-    x: $data.current === 3
+    x: $data.current === 2,
+    y: $data.current === 3
   });
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-011d3064"], ["__file", "A:/vs code/uni-ui/vue/pages/ldhcollection/ldhcollection.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-011d3064"], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/pages/ldhcollection/ldhcollection.vue"]]);
 wx.createPage(MiniProgramPage);

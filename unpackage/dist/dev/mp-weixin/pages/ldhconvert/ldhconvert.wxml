@@ -1,0 +1,1 @@
+<view class="data-v-2be8b766"><view class="tab data-v-2be8b766"><view class="tit data-v-2be8b766"><view class="{{['tabItem', 'data-v-2be8b766', a && 'active']}}" bindtap="{{b}}"> 优惠券 </view><view class="{{['tabItem', 'data-v-2be8b766', c && 'active']}}" bindtap="{{d}}"> 商品 </view></view></view></view>

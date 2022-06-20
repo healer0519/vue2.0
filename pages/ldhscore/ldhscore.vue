@@ -9,11 +9,11 @@
 			</view>
 
 			<view class="use">
-				<view class="exchange">
-					我的兑换
+				<view class="exchange" @click="toconvert">
+					<uni-icons type="gift" size="20"></uni-icons>我的兑换
 				</view>
-				<view class="income">
-					积分收支
+				<view class="income" @click="tograde">
+					<uni-icons type="vip" size="20"></uni-icons>积分收支
 				</view>
 			</view>
 		</view>
@@ -37,7 +37,16 @@
 			}
 		},
 		methods: {
-		
+			toconvert(){
+				uni.navigateTo({
+					url:"/pages/ldhconvert/ldhconvert"
+				})
+			},
+			tograde(){
+				uni.navigateTo({
+					url:"/pages/ldhgrade/ldhgrade"
+				})
+			},
 		},
 		created() {
 			

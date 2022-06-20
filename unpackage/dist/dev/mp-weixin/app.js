@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
 var store_gouwuche = require("./store/gouwuche.js");
+require("./common/JS/http.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/class/class.js";
@@ -18,6 +19,10 @@ if (!Math) {
   "./pages/ldhdiscount/ldhdiscount.js";
   "./pages/ldhcard/ldhcard.js";
   "./pages/ldhbalance/ldhbalance.js";
+  "./pages/ldhget/ldhget.js";
+  "./pages/ldhconvert/ldhconvert.js";
+  "./pages/ldhgrade/ldhgrade.js";
+  "./pages/sum/sum.js";
   "./components/shouhuoyemian/shouhuoyemian.js";
   "./components/tianjiayemian/tianjiayemian.js";
   "./components/zuji/zuji.js";
@@ -38,7 +43,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "A:/vs code/uni-ui/vue/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   app.use(store_gouwuche.store);

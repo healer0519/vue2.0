@@ -197,9 +197,9 @@ const _sfc_main = {
     this.GethongbyId();
   },
   methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addzuji"])), {
-    toxiangqing(item, key) {
+    tospxiangqing(item, key) {
       common_vendor.index.navigateTo({
-        url: `../../components/spxiangqing/spxiangqing?id=${key}`
+        url: `/components/spxiangqing/spxiangqing?id=${key}`
       });
       this.addzuji(item);
     },
@@ -341,17 +341,17 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     q: common_vendor.f($data.shoppingList, (item, k0, i0) => {
       return {
         a: item.cover_pic,
-        b: common_vendor.t(item.name),
-        c: common_vendor.t(item.price_content),
-        d: common_vendor.t(item.original_price),
-        e: "57280228-8-" + i0,
-        f: common_vendor.p({
+        b: common_vendor.o(($event) => $options.tospxiangqing(item, item.id)),
+        c: common_vendor.t(item.name),
+        d: common_vendor.t(item.price_content),
+        e: common_vendor.t(item.original_price),
+        f: "57280228-8-" + i0,
+        g: common_vendor.p({
           item
-        }),
-        g: common_vendor.o(($event) => $options.toxiangqing(item, item.id))
+        })
       };
     })
   };
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-57280228"], ["__file", "A:/vs code/uni-ui/vue/pages/index/index.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-57280228"], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/pages/index/index.vue"]]);
 wx.createPage(MiniProgramPage);

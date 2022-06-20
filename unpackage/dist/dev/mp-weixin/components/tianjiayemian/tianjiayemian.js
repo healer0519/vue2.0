@@ -208,5 +208,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     L: $data.datass != void 0
   });
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-030c3b20"], ["__file", "A:/vs code/uni-ui/vue/components/tianjiayemian/tianjiayemian.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-030c3b20"], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/components/tianjiayemian/tianjiayemian.vue"]]);
 wx.createPage(MiniProgramPage);

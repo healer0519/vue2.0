@@ -47,7 +47,7 @@
 				</view>
 				</view>
 				<view class="content">
-					没有任何商品哦~
+					{{$store.state.shoucangdatas}}没有任何商品哦~
 				</view>
 			</view>
 			<view v-else-if="current===2" class="detail">

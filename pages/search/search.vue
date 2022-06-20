@@ -2,7 +2,7 @@
 	<view class="container">
 		<!-- 搜索栏 -->
 		<view class="search">
-			<uni-search-bar :radius="100" cancelButton="none" @confirm="Getinput" @clear="clear" v-model="key">
+			<uni-search-bar :radius="100" cancelButton="none" @confirm="Getinput" @clear="clear" v-model="content">
 			</uni-search-bar>
 		</view>
 		<!-- 内容 -->
@@ -11,9 +11,11 @@
 			<!-- 搜索历史 -->
 			<view class="Search_history" v-show="historyList.length!=0">
 				<text class="Search_history_head">历史搜索</text>
-				<uni-icons type="trash" size="20" color="lightgray" @click="clear" style='margin-left: 550rpx;'></uni-icons>
+				<uni-icons type="trash" size="20" color="lightgray"  style='margin-left: 550rpx;'
+					@click="clearhistory()">
+				</uni-icons>
 				<view class="Search_history_foot">
-					<view class="item" v-for="item in historyList" @click="putinput(item)">
+					<view class="item" v-for="item in $store.state.historyList" @click="pushContent(item)">
 						{{item}}
 					</view>
 				</view>
@@ -51,20 +53,32 @@
 
 <script>
 	import {
+		mapState,
+		mapMutations,
+		mapGetters
+	} from 'vuex'
+	import {
 		requestGet
 	} from "../../common/JS/http.js"
 	export default {
 		data() {
 			return {
 				hotList: {},
-				historyList: [],
 				searchList: {},
+				content:'',
+
 			}
 		},
 		created() {
 			this.GetHotList()
 		},
+		computed: {
+			...mapState({
+				historyList: 'historyList'
+			})
+		},
 		methods: {
+			...mapMutations(['changehistoryList', 'deletehistoryList']),
 			async GetHotList() {
 				let result = await requestGet(
 					'/web/index.php?_mall_id=22293&r=/api/goods/hot-search');
@@ -78,14 +92,21 @@
 				console.log(this.searchList);
 			},
 			Getinput(event) {
-				this.historyList.push(event.value)
+				this.changehistoryList(event)
 				this.GetListByKey(event.value)
-
 			},
 			clear(e) {
-				this.historyList = []
-				this.searchList={}
+
+				this.searchList = {}
 			},
+			clearhistory() {
+				this.deletehistoryList()
+			},
+			pushContent(item){
+				console.log(item)
+				
+				this.content=item
+			}
 		}
 	}
 </script>

@@ -1,0 +1,1 @@
+<view class="data-v-c5194b34"><view class="tab data-v-c5194b34"><view class="tit data-v-c5194b34"><view class="{{['tabItem', 'data-v-c5194b34', a && 'active']}}" bindtap="{{b}}"> 收入 </view><view class="{{['tabItem', 'data-v-c5194b34', c && 'active']}}" bindtap="{{d}}"> 支出 </view></view></view></view>

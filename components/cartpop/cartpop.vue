@@ -17,21 +17,22 @@
 
 				<scroll-view class="middle" scroll-y="true">
 					<view class="middlename">{{keyword.attr_group_name}}</view>
-					<view v-for="(gooditem,idx) in gooddetail.attr" :key="index" class="gooditemcard">
+					<view v-for="(gooditem,idx) in gooddetail.attr" :key="index" :class="['gooditemcard',{'active':isActive===idx}]">
+						<!-- :class="['Lcontent-item',{'active':isActive===idx}]" -->
 						<image :src="gooditem.pic_url" mode="widthFix" @click="headChange(idx)"></image>
 						<view class="gooditemName">{{gooditem.attr_list[0].attr_name}}</view>
 						<view class="lookimage" @click="previewImage(idx)">
-
+							<uni-icons type="plusempty" size="20" color="white"></uni-icons>
 						</view>
 					</view>
 					<view class="">
-						数量<uni-number-box v-model="vModelValue"></uni-number-box>
+						数量<uni-number-box v-model="vModelValue" @change="change"></uni-number-box>
 					</view>
 				</scroll-view>
 
 				<view class="footer">
-					<uni-goods-nav :options="options" :button-group="buttonGroup" @buttonClick="buttonClick"
-						:fill="true" />
+					<uni-goods-nav :options="options" :button-group="buttonGroup" @buttonClick="buttonClick" 
+						:fill="true"/>
 
 				</view>
 			</view>
@@ -49,6 +50,7 @@
 		props: ['item'],
 		data() {
 			return {
+                goodsID:0,
 				gooddetail: {},
 				headlist: {},
 				keyword: {},
@@ -64,7 +66,9 @@
 						color: '#fff',
 					}
 				],
-				images: []
+				images: [],
+				number:1,
+				isActive:0
 
 			}
 		},
@@ -72,22 +76,37 @@
 			open() {
 				this.$refs.popup.open('bottom')
 				this.GetgoodsbuyId(this.item.id)
-				console.log(this.item.id);
 			},
 			async GetgoodsbuyId(id) {
 				let result = await requestGet(`/web/index.php?_mall_id=22293&r=api/goods/detail&id=${id}&plugin=mall`)
 				result.code == 0 ? this.gooddetail = result.data.goods : ""
-				console.log(result.data.goods)
+				// console.log(result.data.goods)
 				this.headlist = this.gooddetail.attr[0]
 				this.keyword = this.gooddetail.attr_groups[0]
-				console.log(this.gooddetail.attr[0].price)
+				// console.log(this.gooddetail.attr[0].price)
 			},
 			headChange(id) {
-				this.headlist = this.gooddetail.attr[id]
+				this.headlist = this.gooddetail.attr[id];
+				this.isActive=id
+				
 			},
 			buttonClick(e) {
 				console.log(e)
-				// this.options[2].info++
+				let goods_id=this.headlist.goods_id
+				let id=this.headlist.id
+				if(e.index==1)
+				{
+					uni.navigateTo({
+						url: `../../pages/sum/sum?goods_id=${goods_id}&id=${id}&number=${this.number}`,
+					});
+					
+
+				}
+				if(e.index==0){
+	               uni.switchTab({
+	               	  url:`../../pages/cart/cart?goods_id=${goods_id}&id=${id}&number=${this.number}`
+	               })
+				}
 			},
 			GetImage(array) {
 				for (var i = 0; i < array.length; i++)
@@ -104,6 +123,10 @@
 					indicator: "number"
 
 				})
+			},
+			change(e)
+			{
+				this.number=e
 			}
 
 		}
@@ -194,14 +217,19 @@
 				margin-right: 17rpx;
 				position: relative;
 				margin-bottom: 20rpx;
+				&.active {
+				  border: 1rpx solid red;
+				  box-sizing: border-box;
+				}
 
 				.lookimage {
 					position: absolute;
 					top: 20rpx;
 					right: 20rpx;
-					background-color: red;
+					background-color: lightgray;
 					width: 40rpx;
 					height: 40rpx;
+					border-radius: 10rpx;
 				}
 
 				image {
