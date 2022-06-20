@@ -1,70 +1,69 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/class/class",
-        "pages/cart/cart",
-        "pages/search/search",
-        "pages/introduce/introduce",
-        "pages/swiperdetail/swiperdetail",
-        "components/cartpop/cartpop",
-        "pages/me/me",
-        "pages/ldhmymessage/ldhmymessage",
-        "pages/ldhcollection/ldhcollection",
-        "pages/ldhscore/ldhscore",
-        "pages/ldhdiscount/ldhdiscount",
-        "pages/ldhcard/ldhcard",
-        "pages/ldhbalance/ldhbalance",
-        "pages/ldhget/ldhget",
-        "pages/ldhconvert/ldhconvert",
-        "pages/ldhgrade/ldhgrade",
-        "pages/sum/sum",
-        "components/shouhuoyemian/shouhuoyemian",
-        "components/tianjiayemian/tianjiayemian",
-        "components/zuji/zuji",
-        "components/myorder/myorder",
-        "components/spxiangqing/spxiangqing",
-        "components/juan/juan",
-        "components/huiyuan/huiyuan"
-    ],
-    "window": {
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8"
-    },
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "static/首页.png",
-                "selectedIconPath": "static/首页 (1).png"
-            },
-            {
-                "pagePath": "pages/class/class",
-                "text": "分类",
-                "iconPath": "static/分类.png",
-                "selectedIconPath": "static/分类 (1).png"
-            },
-            {
-                "pagePath": "pages/cart/cart",
-                "text": "购物车",
-                "iconPath": "static/购物车.png",
-                "selectedIconPath": "static/购物车 (1).png"
-            },
-            {
-                "pagePath": "pages/me/me",
-                "text": "我的",
-                "iconPath": "static/我.png",
-                "selectedIconPath": "static/我 (1).png"
-            }
-        ]
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "11111"
-        }
-    },
-    "usingComponents": {},
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/class/class",
+    "pages/cart/cart",
+    "pages/search/search",
+    "pages/introduce/introduce",
+    "pages/swiperdetail/swiperdetail",
+    "components/cartpop/cartpop",
+    "pages/me/me",
+    "pages/ldhmymessage/ldhmymessage",
+    "pages/ldhcollection/ldhcollection",
+    "pages/ldhscore/ldhscore",
+    "pages/ldhdiscount/ldhdiscount",
+    "pages/ldhcard/ldhcard",
+    "pages/ldhbalance/ldhbalance",
+    "pages/ldhget/ldhget",
+    "pages/ldhconvert/ldhconvert",
+    "pages/ldhgrade/ldhgrade",
+    "pages/sum/sum",
+    "components/shouhuoyemian/shouhuoyemian",
+    "components/tianjiayemian/tianjiayemian",
+    "components/zuji/zuji",
+    "components/myorder/myorder",
+    "components/spxiangqing/spxiangqing",
+    "components/juan/juan",
+    "components/huiyuan/huiyuan"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/首页.png",
+        "selectedIconPath": "static/首页 (1).png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "分类",
+        "iconPath": "static/分类.png",
+        "selectedIconPath": "static/分类 (1).png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "static/购物车.png",
+        "selectedIconPath": "static/购物车 (1).png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "static/我.png",
+        "selectedIconPath": "static/我 (1).png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "11111"
+    }
+  },
+  "usingComponents": {}
 }

@@ -32,6 +32,11 @@ const _sfc_main = {
     };
   },
   methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["GetgoodsdetailbyId"])), {
+    Toaddress() {
+      common_vendor.index.navigateTo({
+        url: "/components/shouhuoyemian/shouhuoyemian"
+      });
+    },
     getdata(id) {
       this.goosdetail = this.goodsdetailList.attr[0];
       console.log(this.goosdetail);
@@ -58,35 +63,45 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.p({
-      type: "right",
-      size: "10"
+    a: common_vendor.f(_ctx.$store.state.address, (item, k0, i0) => {
+      return {
+        a: common_vendor.t(item.name),
+        b: common_vendor.t(item.phone),
+        c: common_vendor.t(item.txt),
+        d: "40d9b89e-0-" + i0,
+        e: item.flag == true
+      };
     }),
     b: common_vendor.p({
+      type: "right",
+      size: "20"
+    }),
+    c: common_vendor.o(($event) => $options.Toaddress()),
+    d: common_vendor.p({
       type: "shop-filled",
       size: "15",
       color: "gray"
     }),
-    c: common_vendor.p({
+    e: common_vendor.p({
       type: "cart-filled",
       ize: "15",
       color: "gray"
     }),
-    d: common_vendor.o(($event) => $options.getdata(_ctx.id)),
-    e: common_vendor.f($data.options, (item, index, i0) => {
+    f: common_vendor.o(($event) => $options.getdata(_ctx.id)),
+    g: common_vendor.f($data.options, (item, index, i0) => {
       return {
         a: common_vendor.t(item)
       };
     }),
-    f: _ctx.currentgoods.pic_url,
-    g: common_vendor.t(_ctx.goodsdetailList.name),
-    h: common_vendor.t(_ctx.currentgoodsList.attr_group_name),
-    i: common_vendor.t(_ctx.currentgoodsList.attr_name),
-    j: common_vendor.t($data.number),
-    k: common_vendor.t(_ctx.goodsdetailList.price),
+    h: _ctx.currentgoods.pic_url,
+    i: common_vendor.t(_ctx.goodsdetailList.name),
+    j: common_vendor.t(_ctx.currentgoodsList.attr_group_name),
+    k: common_vendor.t(_ctx.currentgoodsList.attr_name),
     l: common_vendor.t($data.number),
-    m: common_vendor.t($data.number * _ctx.goodsdetailList.price),
-    n: common_vendor.t($data.number * _ctx.goodsdetailList.price)
+    m: common_vendor.t(_ctx.goodsdetailList.price),
+    n: common_vendor.t($data.number),
+    o: common_vendor.t($data.number * _ctx.goodsdetailList.price),
+    p: common_vendor.t($data.number * _ctx.goodsdetailList.price)
   };
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-40d9b89e"], ["__file", "D:/\u524D\u7AEF/\u57F9\u8BAD/0607vue \u5C0F\u7A0B\u5E8F/vue/vue/pages/sum/sum.vue"]]);

@@ -1,9 +1,14 @@
 <template>
 	<view class="container">
 		<scroll-view scroll-y="true" class="Sum_content">
-			<view class="address">
-				<text style="margin-left: 20rpx;">请选择收货地址</text>
-				<uni-icons type="right" size="10" style="margin-left: 470rpx;"></uni-icons>
+			<view class="address" @click="Toaddress()" v-for="item in $store.state.address" :v-if="item.flag==true" style="display: flex;">
+				<view class="" style="width: 70%;">
+					<text style="margin-left: 20rpx;margin-top: 10rpx;display: inline-block;">收货人:{{item.name}}</text>
+					<text style="margin-left: 80rpx;margin-top: 10rpx;display: inline-block;">电话号码:{{item.phone}}</text>
+					<text style="margin-left: 20rpx;margin-top: 20rpx;display: inline-block;">收货地址:{{item.txt}}</text>
+				</view>
+
+				<uni-icons type="right" size="20" style="margin-top: 25rpx;margin-left:150rpx;"></uni-icons>
 			</view>
 			<view class="content">
 				<view class="head">
@@ -32,7 +37,7 @@
 
 				</view>
 				<view class="juan">
-					<text>优惠卷</text>
+					<text>优惠券</text>
 				</view>
 				<view class="fei">运费</view>
 				<input type="text" placeholder="买家留言" />
@@ -77,6 +82,11 @@
 		},
 		methods: {
 			...mapMutations(['GetgoodsdetailbyId']),
+			Toaddress() {
+				uni.navigateTo({
+					url: '/components/shouhuoyemian/shouhuoyemian',
+				});
+			},
 			getdata(id) {
 				this.goosdetail = this.goodsdetailList.attr[0]
 				console.log(this.goosdetail)
@@ -111,7 +121,7 @@
 				background-color: white;
 				border-radius: 10rpx;
 				margin: 20rpx;
-				line-height: 100rpx;
+				// line-height: 100rpx;
 				font-size: 25rpx;
 			}
 
@@ -235,6 +245,7 @@
 				font-size: 20rpx;
 				line-height: 100rpx;
 				color: red;
+
 				text {
 					font-size: 50rpx;
 				}
@@ -244,10 +255,10 @@
 				width: 200rpx;
 				height: 80rpx;
 				background-color: red;
-			 color: white;
+				color: white;
 				font-size: 30rpx;
 				line-height: 80rpx;
-			 margin-top: 10rpx;
+				margin-top: 10rpx;
 				border-radius: 35rpx;
 			}
 
