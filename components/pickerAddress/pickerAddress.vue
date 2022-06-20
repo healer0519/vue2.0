@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import AllAddress from '@/static/datas.js'
+    import AllAddress from '@/static/ws/datas.js'
     let selectVal = ['','','']
     
     export default {
@@ -19,7 +19,11 @@
         created() {
             this.initSelect()
         },
+		onLoad() {
+			this.initSelect()
+		},
         methods:{
+			AllAddress,
             // 初始化地址选项
             initSelect() {
                 this.updateSourceDate() // 更新源数据
@@ -94,7 +98,6 @@
                 })
                 return this
             }
-            
         }
     }
 </script>

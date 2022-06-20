@@ -6379,29 +6379,6 @@ var mapMutations = normalizeNamespace(function(namespace, mutations) {
   });
   return res;
 });
-var mapGetters = normalizeNamespace(function(namespace, getters) {
-  var res = {};
-  if (!isValidMap(getters)) {
-    console.error("[vuex] mapGetters: mapper parameter must be either an Array or an Object");
-  }
-  normalizeMap(getters).forEach(function(ref2) {
-    var key = ref2.key;
-    var val = ref2.val;
-    val = namespace + val;
-    res[key] = function mappedGetter() {
-      if (namespace && !getModuleByNamespace(this.$store, "mapGetters", namespace)) {
-        return;
-      }
-      if (!(val in this.$store.getters)) {
-        console.error("[vuex] unknown getter: " + val);
-        return;
-      }
-      return this.$store.getters[val];
-    };
-    res[key].vuex = true;
-  });
-  return res;
-});
 function normalizeMap(map) {
   if (!isValidMap(map)) {
     return [];
@@ -6721,7 +6698,6 @@ exports.e = e;
 exports.f = f;
 exports.index = index;
 exports.initVueI18n = initVueI18n;
-exports.mapGetters = mapGetters;
 exports.mapMutations = mapMutations;
 exports.n = n;
 exports.o = o;

@@ -110,7 +110,7 @@
 			"path": "components/tianjiayemian/tianjiayemian",
 			"style": {
 				"navigationBarTitleText": "添加收货地址",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": true
 			}
 		
 		},
@@ -141,7 +141,25 @@
 			}
 		
 		}
-	],
+	    ,{
+            "path" : "components/juan/juan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		// 添加会员详情页面
+		{
+			"path": "components/huiyuan/huiyuan",
+			"style": {
+				"navigationBarTitleText": "会员",
+				"enablePullDownRefresh": false
+			}
+		
+		}
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

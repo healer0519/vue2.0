@@ -10,12 +10,17 @@
 				<text style="flex: 1;" class="text" :class="{'active' : 4 == current}" @click="clickTab(4)">待收货</text>
 				<text style="flex: 1;" class="text" :class="{'active' : 5 == current}" @click="clickTab(5)">已完成</text>
 		</view>
+		<!-- 购物车的内容 -->
+		<view >
+			
+		</view>
 	</view>
 </template>
 
 <script>
 	export default {
 		name: "myorder",
+		datas:[],
 		data() { 
 			return {
 				current: 1
@@ -25,6 +30,10 @@
 			clickTab(e) {
 				this.current = e
 			},
+		},
+		onLoad() {
+			this.datas=uni.getStorageInfo('carts')
+			console.log(this.datas)
 		}
 	}
 </script>

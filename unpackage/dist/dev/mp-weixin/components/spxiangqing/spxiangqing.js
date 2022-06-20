@@ -24,6 +24,15 @@ var common_JS_formate = require("../../common/JS/formate.js");
 const _sfc_main = {
   data() {
     return {
+      options: [{
+        icon: "shop",
+        text: "\u5E97\u94FA",
+        infoBackgroundColor: "#007aff",
+        infoColor: "#f5f5f5"
+      }, {
+        icon: "cart",
+        text: "\u8D2D\u7269\u8F66"
+      }],
       buttonGroup: [
         {
           text: "\u52A0\u5165\u8D2D\u7269\u8F66",
@@ -65,21 +74,33 @@ const _sfc_main = {
     formatRichText: common_JS_formate.formatRichText
   }, common_vendor.mapMutations(["addCar"])), {
     async getdatas(id) {
+      console.log(id);
       let result = await common_JS_http.requestGet(`/web/index.php?_mall_id=22293&r=api/goods/detail&id=${id}&plugin=mall`);
       console.log(result);
       result.code == 0 ? this.datas = result.data.goods : "";
       console.log(this.datas);
     },
-    async getsplist(id) {
-      console.log(id);
+    async getsplist() {
+      console.log();
       let result = await common_JS_http.requestGet(`/web/index.php?_mall_id=22293&r=api/goods/new-recommend&type=cart`);
       console.log(result);
       result.code == 0 ? this.splist = result.data.list : "";
       result.code == 0 ? this.spdb = result.data.comment_style : "";
       console.log(this.splist, this.spdb);
     },
+    look(key) {
+      console.log(key);
+      common_vendor.index.previewImage({
+        urls: [key]
+      });
+    },
     change(e) {
       this.current = e.detail.current;
+    },
+    liaojiegengduo() {
+      common_vendor.index.navigateTo({
+        url: "/components/huiyuan/huiyuan"
+      });
     },
     toxiangxi() {
       this.$refs.popup2.open("center");
@@ -124,30 +145,36 @@ const _sfc_main = {
     }
   }),
   created() {
+    this.getsplist();
   },
   onLoad(options) {
-    console.log(options);
+    console.log(options.id);
     this.getdatas(options.id);
   }
 };
 if (!Array) {
   const _easycom_uni_swiper_dot2 = common_vendor.resolveComponent("uni-swiper-dot");
+  const _easycom_cartpop2 = common_vendor.resolveComponent("cartpop");
+  const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
   const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
   const _easycom_uni_number_box2 = common_vendor.resolveComponent("uni-number-box");
-  (_easycom_uni_swiper_dot2 + _easycom_uni_popup2 + _easycom_uni_number_box2)();
+  (_easycom_uni_swiper_dot2 + _easycom_cartpop2 + _easycom_uni_goods_nav2 + _easycom_uni_popup2 + _easycom_uni_number_box2)();
 }
 const _easycom_uni_swiper_dot = () => "../../uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.js";
+const _easycom_cartpop = () => "../cartpop/cartpop2.js";
+const _easycom_uni_goods_nav = () => "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
 const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 const _easycom_uni_number_box = () => "../../uni_modules/uni-number-box/components/uni-number-box/uni-number-box.js";
 if (!Math) {
-  (_easycom_uni_swiper_dot + _easycom_uni_popup + _easycom_uni_number_box)();
+  (_easycom_uni_swiper_dot + _easycom_cartpop + _easycom_uni_goods_nav + _easycom_uni_popup + _easycom_uni_number_box)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($data.datas.pic_url, (item, index, i0) => {
       return {
         a: item.pic_url,
-        b: item.id
+        b: common_vendor.o(($event) => $options.look(item.pic_url)),
+        c: item.id
       };
     }),
     b: common_vendor.o((...args) => $options.change && $options.change(...args)),
@@ -163,50 +190,63 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     g: common_vendor.t($data.datas.name),
     h: common_vendor.t($data.datas.subtitle),
     i: common_vendor.t($data.datas.price),
-    j: common_vendor.o((...args) => $options.xuanze && $options.xuanze(...args)),
+    j: common_vendor.o((...args) => $options.liaojiegengduo && $options.liaojiegengduo(...args)),
     k: common_vendor.o((...args) => $options.xuanze && $options.xuanze(...args)),
     l: common_vendor.t($data.datas.goods_marketing.shipping),
     m: common_vendor.o((...args) => $options.toxiangxi && $options.toxiangxi(...args)),
     n: $options.formatRichText($data.datas.detail),
     o: $data.spdb.pic_url,
     p: common_vendor.t($data.spdb.text),
-    q: common_vendor.f($data.splist, (item, index, i0) => {
+    q: common_vendor.f($data.splist, (item, k0, i0) => {
       return {
         a: item.cover_pic,
         b: common_vendor.t(item.name),
-        c: item.id
+        c: common_vendor.t(item.price_content),
+        d: common_vendor.t(item.original_price),
+        e: "6f1cc880-1-" + i0,
+        f: common_vendor.p({
+          item
+        }),
+        g: common_vendor.o(($event) => _ctx.toxiangqing(item, item.id))
       };
     }),
-    r: common_vendor.o((...args) => $options.close2 && $options.close2(...args)),
-    s: common_vendor.t($data.datas.goods_marketing.shipping),
-    t: common_vendor.sr("popup2", "6f1cc880-1"),
-    v: common_vendor.p({
-      type: "bottom",
-      ["mask-click"]: true,
-      animation: "true"
+    r: common_vendor.o($options.onClick),
+    s: common_vendor.o($options.buttonClick),
+    t: common_vendor.p({
+      options: $data.options,
+      fill: true,
+      ["button-group"]: $data.buttonGroup
     }),
-    w: common_vendor.o((...args) => $options.close1 && $options.close1(...args)),
-    x: common_vendor.sr("popup1", "6f1cc880-2"),
+    v: common_vendor.o((...args) => $options.close2 && $options.close2(...args)),
+    w: common_vendor.t($data.datas.goods_marketing.shipping),
+    x: common_vendor.sr("popup2", "6f1cc880-3"),
     y: common_vendor.p({
       type: "bottom",
       ["mask-click"]: true,
       animation: "true"
     }),
-    z: $data.datas.attr_groups[0].attr_list[0].pic_url,
-    A: common_vendor.t($data.datas.price),
-    B: common_vendor.t($data.datas.goods_stock),
-    C: common_vendor.o((...args) => $options.close && $options.close(...args)),
-    D: common_vendor.t($data.datas.attr_groups[0].attr_group_name),
-    E: $data.datas.attr_groups[0].attr_list[0].pic_url,
-    F: common_vendor.t($data.datas.attr_groups[0].attr_list[0].attr_name),
-    G: common_vendor.o($options.bgchange),
-    H: common_vendor.p({
+    z: common_vendor.o((...args) => $options.close1 && $options.close1(...args)),
+    A: common_vendor.sr("popup1", "6f1cc880-4"),
+    B: common_vendor.p({
+      type: "bottom",
+      ["mask-click"]: true,
+      animation: "true"
+    }),
+    C: $data.datas.attr_groups[0].attr_list[0].pic_url,
+    D: common_vendor.t($data.datas.price),
+    E: common_vendor.t($data.datas.goods_stock),
+    F: common_vendor.o((...args) => $options.close && $options.close(...args)),
+    G: common_vendor.t($data.datas.attr_groups[0].attr_group_name),
+    H: $data.datas.attr_groups[0].attr_list[0].pic_url,
+    I: common_vendor.t($data.datas.attr_groups[0].attr_list[0].attr_name),
+    J: common_vendor.o($options.bgchange),
+    K: common_vendor.p({
       value: $data.numberValue
     }),
-    I: common_vendor.o((...args) => $options.onClick && $options.onClick(...args)),
-    J: common_vendor.o((...args) => $options.buttonClick && $options.buttonClick(...args)),
-    K: common_vendor.sr("popup", "6f1cc880-3"),
-    L: common_vendor.p({
+    L: common_vendor.o((...args) => $options.onClick && $options.onClick(...args)),
+    M: common_vendor.o((...args) => $options.buttonClick && $options.buttonClick(...args)),
+    N: common_vendor.sr("popup", "6f1cc880-5"),
+    O: common_vendor.p({
       type: "bottom",
       ["mask-click"]: true,
       animation: "true"

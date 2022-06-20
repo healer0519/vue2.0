@@ -1,7 +1,7 @@
 <template>
 	<view class="box">
 		<!-- 表单 -->
-		<uni-forms ref="form" :modelValue="formData" v-if="datass.length==0">
+		<uni-forms ref="form" :modelValue="formData" v-if="datass==undefined">
 			<uni-forms-item label=" 收货人" name="name">
 				<uni-easyinput type="text" v-model="formData.name" />
 			</uni-forms-item>
@@ -16,7 +16,7 @@
 			</uni-forms-item>
 		</uni-forms>
 		<!-- 查询出的数据 -->
-		<uni-forms ref="form" :modelValue="formData" v-else-if="datass.length!=0">
+		<uni-forms ref="form" :modelValue="datass" v-else-if="datass!=undefined">
 			<uni-forms-item label=" 收货人" name="name">
 				<uni-easyinput type="text" v-model="datass.name" />
 			</uni-forms-item>
@@ -30,7 +30,8 @@
 				<uni-easyinput type="textarea" v-model="datass.xxaddress" />
 			</uni-forms-item>
 		</uni-forms>
-		<button @click="submit">保存地址</button>
+		<button v-if="datass==undefined" @click="submit">保存地址</button>
+		<button v-else-if="datass!=undefined" @click="bianji1(datass)">保存地址</button>
 	</view>
 </template>
 
@@ -48,27 +49,48 @@
 			return {
 				key: "",
 				datas: [],
-				datass:[],
-				datasss:[],
+				datass: [],
+				datasss: [],
 				// 表单数据
 				formData: {
 					name: '',
-					phone: '',
+					phone: "",
 					txt: '选择你的地址',
 					xxaddress: '',
 				},
 			}
 		},
 		methods: {
-			...mapMutations(['addAddress']),
+			...mapMutations(['addAddress', 'bianji']),
 			change(data) {
 				console.log(data)
 				this.formData.txt = data.data.join('')
 				console.log(this.formData.txt)
 			},
+			//暂时只支持更改除了姓名之外的数据
+			bianji1(data) {
+				console.log(data)
+				if (data.name == "" || data.phone == "" || data.txt == "" || data
+					.xxaddress == "") {
+					uni.showToast({
+						title: "请输入完整！",
+						duration: 2000,
+						icon: "error"
+					})
+				} else {
+					this.bianji({
+						name: data.name,
+						phone: data.phone,
+						txt: data.txt,
+						xxaddress: data.xxaddress
+					})
+					this.to()
+				}
+			},
 			submit() {
 				console.log(this.formData)
-				if (this.formData.name == "" || this.formData.phone == "" || this.formData.txt == "" || this.formData
+				if (this.formData.name == "" || this.formData.phone == "" || this.formData.txt == "" || this
+					.formData
 					.xxaddress == "") {
 					uni.showToast({
 						title: "请输入完整！",
@@ -91,19 +113,20 @@
 
 			},
 			to() {
-				uni.navigateTo({
-					url: '/components/shouhuoyemian/shouhuoyemian'
-				})
+				uni.navigateBack()
+
 			}
 
+		},
+		activated() {
 		},
 		onLoad(options) {
 			console.log(options)
 			this.key = options.name
 			console.log(this.key)
-			this.datasss = uni.getStorageSync('address')
-			console.log(this.datasss) 
-			this.datass=this.datasss.find(item=>item.name==this.key)
+			this.datasss = this.$store.state.address
+			console.log(this.datasss)
+			this.datass = this.datasss.find(item => item.name == this.key)
 			console.log(this.datass)
 		}
 	}

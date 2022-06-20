@@ -1,0 +1,76 @@
+.container .search.data-v-465fb490 .uni-searchbar {
+  background-color: lightblue;
+}
+.container .Content.data-v-465fb490 {
+  display: flex;
+}
+.container .Content .Lcontent.data-v-465fb490 {
+  width: 200rpx;
+  height: 1000rpx;
+}
+.container .Content .Lcontent .Lcontent-item.data-v-465fb490 {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  font-size: 25rpx;
+  line-height: 100rpx;
+  background-color: #eee;
+  color: gray;
+}
+.container .Content .Lcontent .Lcontent-item.active.data-v-465fb490 {
+  color: red;
+  background-color: white;
+  border-left: 5px solid red;
+  box-sizing: border-box;
+}
+.container .Content .Rcontent.data-v-465fb490 {
+  width: 550rpx;
+  height: 1000rpx;
+}
+.container .Content .Rcontent .Ritem.data-v-465fb490 {
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 100%;
+  background-color: white;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item.data-v-465fb490 {
+  position: relative;
+  padding-bottom: 20rpx;
+  width: 100%;
+  height: 210rpx;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item .Rcontent_item_image.data-v-465fb490 {
+  width: 210rpx;
+  height: 210rpx;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item .Rcontent_item_text.data-v-465fb490 {
+  height: 210rpx;
+  width: 300rpx;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item .Rcontent_item_text .rightname.data-v-465fb490 {
+  font-size: 28rpx;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item .Rcontent_item_text .rightsale.data-v-465fb490 {
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  color: gray;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item .Rcontent_item_text .rightprice.data-v-465fb490 {
+  margin-left: 10rpx;
+  margin-top: 20rpx;
+  font-size: 35rpx;
+  font-weight: 600;
+  color: red;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item .Rcontent_item_text .rightoldprice.data-v-465fb490 {
+  margin-left: 10rpx;
+  font-size: 18rpx;
+  color: gray;
+  text-decoration: line-through;
+}
+.container .Content .Rcontent .Ritem .Rcontent-item.data-v-465fb490:not(:first-child) {
+  padding-top: 20rpx;
+}

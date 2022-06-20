@@ -1,12 +1,32 @@
 "use strict";
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
-      userInfo: {}
+      userInfo: {},
+      zujinum: ""
     };
   },
-  methods: {
+  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addlogin"])), {
     tozuji() {
       common_vendor.index.navigateTo({
         url: "/components/zuji/zuji"
@@ -28,6 +48,7 @@ const _sfc_main = {
         success: (res) => {
           console.log(res.userInfo.avatarUrl);
           this.userInfo = res.userInfo;
+          this.addlogin(this.userInfo);
         }
       });
     },
@@ -56,6 +77,10 @@ const _sfc_main = {
         url: "/pages/ldhcard/ldhcard"
       });
     }
+  }),
+  activated() {
+  },
+  onLoad() {
   },
   created() {
   }
@@ -86,17 +111,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       color: "white"
     }),
     h: common_vendor.o((...args) => $options.tocollection && $options.tocollection(...args)),
-    i: common_vendor.p({
+    i: common_vendor.t(this.$store.state.zujidatas.length),
+    j: common_vendor.p({
       type: "star-filled",
       size: "30",
       color: "white"
     }),
-    j: common_vendor.o((...args) => $options.tozuji && $options.tozuji(...args)),
-    k: common_vendor.o((...args) => $options.tomyorder && $options.tomyorder(...args)),
-    l: common_vendor.p({
-      type: "wallet-filled",
-      size: "20"
-    }),
+    k: common_vendor.o((...args) => $options.tozuji && $options.tozuji(...args)),
+    l: common_vendor.o((...args) => $options.tomyorder && $options.tomyorder(...args)),
     m: common_vendor.p({
       type: "wallet-filled",
       size: "20"
@@ -113,9 +135,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       type: "wallet-filled",
       size: "20"
     }),
-    q: common_vendor.o((...args) => $options.toscore && $options.toscore(...args)),
-    r: common_vendor.o((...args) => $options.todiscount && $options.todiscount(...args)),
-    s: common_vendor.o((...args) => $options.tocard && $options.tocard(...args))
+    q: common_vendor.p({
+      type: "wallet-filled",
+      size: "20"
+    }),
+    r: common_vendor.o((...args) => $options.toscore && $options.toscore(...args)),
+    s: common_vendor.o((...args) => $options.todiscount && $options.todiscount(...args)),
+    t: common_vendor.o((...args) => $options.tocard && $options.tocard(...args))
   };
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-259fb574"], ["__file", "A:/vs code/uni-ui/vue/pages/me/me.vue"]]);

@@ -40,7 +40,7 @@
 				</view>
 				<view class="foot">
 					<view class="">
-						0
+						{{this.$store.state.zujidatas.length}}
 					</view>
 					<view class="inner" @click="tozuji">
 						<view class="icon">
@@ -137,14 +137,18 @@
 </template>
 
 <script>
+	import {
+		mapMutations
+	} from "vuex";
 	export default {
 		data() {
 			return {
 				userInfo: {},
-				
+				zujinum:""
 			}
 		},
 		methods: {
+			...mapMutations(['addlogin']),
 			tozuji(){
 				uni.navigateTo({
 					url:'/components/zuji/zuji'
@@ -168,8 +172,10 @@
 						console.log(res.userInfo.avatarUrl);//获取用户微信头像
 						// console.log(res.userInfo.nickName);//获取用户微信名
 						this.userInfo = res.userInfo
+						this.addlogin(this.userInfo)
 					}
 				})
+				
 			},		
 			tomessage(){
 				uni.navigateTo({
@@ -196,9 +202,12 @@
 					url: "/pages/ldhcard/ldhcard",
 				});
 			},
+		},
+		activated() {
 			
+		},
+		onLoad() {
 			
-
 		},
 		created() {
 			

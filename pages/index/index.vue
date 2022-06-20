@@ -1,10 +1,22 @@
 <template>
 	<view class="container">
 		<!-- 滚动通告 -->
-		<uni-notice-bar showIcon scrollable single text="店内所有商品满300包邮" @click="notice"></uni-notice-bar>
+		<uni-notice-bar showIcon scrollable single text="店内所有商品满300包邮" @click="open" background-color='#ff6666'
+			color="white" showGetMore="true" moreColor="white"></uni-notice-bar>
+		<uni-popup ref="popup" type="bottom">
+			<view class="noticepop">
+				<view class="head">
+					<text>公告</text>
+				</view>
+				<view class="content">
+					<text>店内所有商品满300元包邮</text>
+					<button @click="close">我知道了</button>
+				</view>
+			</view>
+		</uni-popup>
 		<!-- 搜索框 -->
-		<view class="search" @click="onSearch">
-			<uni-search-bar :radius="100" @confirm="search"></uni-search-bar>
+		<view class="search" @click="onSearch()">
+			<uni-search-bar :radius="100" cancelButton="none"></uni-search-bar>
 		</view>
 		<view class="introduce" @click="onIntroduce">
 			<image src="/static/introduce.jpg" mode="widthFix"></image>
@@ -16,15 +28,14 @@
 				<view class="swiper-item">
 					<image :src="item.url" mode="widthFix" @click.stop="ToSwiperdetail(item.id)"></image>
 				</view>
-
 			</swiper-item>
 		</swiper>
 		<!-- 轮播宫格 -->
 		<swiper :indicator-dots="true" :interval="3000" :duration="1000" class="gridSwiper">
 			<swiper-item>
 				<view class="swiper-item">
-					<uni-grid :column="4">
-						<uni-grid-item v-for="item in gridList[0]">
+					<uni-grid :column="4" :showBorder="false">
+						<uni-grid-item v-for="item in gridList[0]" style="background-color: transparent;">
 							<image :src="item.icon" mode="widthFix" style="width: 100rpx;"
 								@click.stop="ToSwiperdetail(item.id)"></image>
 							<view class="">{{item.name}}</view>
@@ -35,7 +46,7 @@
 			</swiper-item>
 			<swiper-item>
 				<view class="swiper-item">
-					<uni-grid :column="4">
+					<uni-grid :column="4" :showBorder="false">
 						<uni-grid-item v-for="item in gridList[1]">
 							<image :src="item.icon" mode="widthFix" style="width: 100rpx;"
 								@click.stop="ToSwiperdetail(item.id)"></image>
@@ -47,24 +58,33 @@
 		</swiper>
 		<!-- 消费券 -->
 		<view class="juan">
-			<view class="tickets">
-				<view class="l-tickets"></view>
-				<view class="r-tickets"></view>
-			</view>
-			<view class="tickets">
-				<view class="l-tickets"></view>
-				<view class="r-tickets"></view>
+			<view class="tickets" v-for="item in juanList" @click="Getjuan(item)">
+				<view class="l-tickets">
+					<view class="l-tickets-head">
+						{{item.Rprice}}.00
+					</view>
+					<view class="l-tickets-foot">
+						满{{item.MinPrice}}.00元可用
+					</view>
+				</view>
+				<view class="r-tickets">
+					<view class="r-tickets-content">
+						立即领取
+					</view>
+				</view>
 			</view>
 		</view>
+
 
 		<uni-title type="h2" title="————热销产品————" align="center"></uni-title>
 		<!-- 热销产品 -->
 		<scroll-view scroll-x="true" class="shoppingnav">
-			<text v-for="item in shoppingnavList" class="item" @click="GetContentbyId(item.id)">{{item.name}}</text>
+			<text v-for="(item,idx) in shoppingnavList" :class="['item',{'active':isActive===idx}]"
+				@click="GetContentbyId(item.id,idx)">{{item.name}}</text>
 
 		</scroll-view>
 		<view class="shoppingContent">
-			<view class="shoppingitem" v-for="item in shoppingList">
+			<view class="shoppingitem" v-for="item in shoppingList" @click="toxiangqing(item,item.id)">
 				<image :src="item.cover_pic" mode=""></image>
 
 				<view class="des">
@@ -82,11 +102,24 @@
 
 <script>
 	import {
+		mapMutations
+	} from "vuex"
+	import {
 		requestGet
 	} from "../../common/JS/http.js"
 	export default {
 		data() {
 			return {
+				juanList: [{
+						Rprice: 10,
+						MinPrice: 300,
+					},
+					{
+						Rprice: 15,
+						MinPrice: 300,
+					}
+				],
+				isActive: 0,
 				swiperlist: [{
 						name: "洪仁堂专区",
 						id: 351811,
@@ -201,7 +234,7 @@
 						{
 							id: 350925,
 							name: "防护消毒",
-							icon: "/static/听诊器.png"
+							icon: "/static/意见反馈.png"
 						},
 						{
 							id: 350925,
@@ -249,6 +282,20 @@
 			this.GethongbyId()
 		},
 		methods: {
+			...mapMutations(['addzuji']),
+			toxiangqing(item,key) {
+				// console.log(key)
+				uni.navigateTo({
+					url: `../../components/spxiangqing/spxiangqing?id=${key}`
+				})
+				this.addzuji(item)
+			},
+			open() {
+				this.$refs.popup.open('center')
+			},
+			close() {
+				this.$refs.popup.close()
+			},
 			onSearch() {
 				uni.navigateTo({
 					url: '/pages/search/search',
@@ -264,17 +311,24 @@
 					url: `../swiperdetail/swiperdetail?id=${id}`
 				});
 			},
-			async GetContentbyId(id) {
+			Getjuan(item) {
+				// 判断是否登录。没有登陆显示先登录页面，登录成功的话可直接领取
+				if (item.Rprice == 15) {
+					this.open()
+				}
+			},
+			async GetContentbyId(id, idx) {
 				let result = await requestGet(
 					`/web/index.php?_mall_id=22293&r=api/index/diy-goods&cat_id=${id}&goodsNum=30`);
-				console.log(result.data.list)
-				this.shoppingList = result.data.list
-				console.log(this.shoppingList)
+
+				this.shoppingList = result.data.list,
+					this.isActive = idx
+
 			},
 			async GethongbyId() {
 				let result = await requestGet(
 					`/web/index.php?_mall_id=22293&r=api/index/diy-goods&cat_id=351811&goodsNum=30`);
-				console.log(result.data.list)
+
 				this.shoppingList = result.data.list
 			},
 			change(e) {
@@ -290,12 +344,62 @@
 	.container {
 		/deep/.uni-noticebar {
 			margin-bottom: 0px;
-			height: 80rpx;
+			height: 50rpx;
+
 		}
 
 		/deep/.uni-searchbar {
 
 			background-color: lightblue;
+
+
+		}
+
+		/deep/.uni-searchbar__box {
+			height: 42rpx;
+		}
+
+
+
+		.noticepop {
+			width: 600rpx;
+			height: 400rpx;
+			background-color: white;
+
+			.head {
+				height: 100rpx;
+				background-color: #FF6666;
+				text-align: center;
+
+				text {
+					font-size: 30rpx;
+					line-height: 100rpx;
+					color: white;
+				}
+			}
+
+			.content {
+				text-align: center;
+				height: 500rpx;
+
+				text {
+					margin-top: 50rpx;
+					display: inline-block;
+					height: 150rpx;
+
+				}
+
+				button {
+					background-color: #FF6666;
+					width: 400rpx;
+					height: 50rpx;
+					border: 0px;
+					border-radius: 50rpx;
+					line-height: 50rpx;
+					font-size: 25rpx;
+					color: white;
+				}
+			}
 		}
 
 		.introduce {
@@ -314,149 +418,111 @@
 
 		.gridSwiper {
 			height: 375rpx;
+
+			.swiper-item {
+				text-align: center;
+				font-size: 25rpx;
+
+				image {
+					margin: 10px auto;
+				}
+			}
 		}
 
 		.juan {
 			display: flex;
+
 			.tickets {
 				display: flex;
 				padding: 20rpx;
 				width: 50%;
 				height: 150rpx;
 				box-sizing: border-box;
+
+				.l-tickets {
+					width: 75%;
+					background: skyblue;
+					height: 100%;
+					position: relative;
+					background: radial-gradient(circle at right top, transparent 16rpx, red 0, #FF8888 100%) right top / 100% 50% no-repeat,
+						radial-gradient(circle at right bottom, transparent 16rpx, red 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+
+					filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, .3));
+
+					&::after {
+						content: '';
+						position: absolute;
+						height: 100%;
+						width: 8rpx;
+						top: 0;
+						left: -8rpx;
+						background: radial-gradient(circle at left center, transparent 8rpx, #FF8888 0) left center / 8rpx 20rpx;
+					}
+
+					.l-tickets-head {
+						line-height: 60rpx;
+						color: white;
+						text-align: center;
+						margin: 0 auto;
+						width: 80%;
+						height: 50%;
+						border-bottom: 1px solid white;
+						font-size: 25rpx;
+						box-sizing: border-box;
+					}
+
+					.l-tickets-foot {
+						line-height: 60rpx;
+						color: white;
+						text-align: center;
+						margin: 0 auto;
+						width: 80%;
+						height: 50%;
+						font-size: 20rpx;
+						box-sizing: border-box;
+					}
+				}
+
+				.r-tickets {
+					flex: 1;
+					background: orchid;
+					position: relative;
+					background: radial-gradient(circle at left top, transparent 16rpx, red 0, #FF8888 100%) right top / 100% 50% no-repeat,
+						radial-gradient(circle at left bottom, transparent 16rpx, red 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
+					filter: drop-shadow(3px 0 3px rgba(0, 0, 0, .3));
+
+					&::after {
+						content: '';
+						position: absolute;
+						height: 100%;
+						width: 8rpx;
+						top: 0;
+						right: -8rpx;
+						background: radial-gradient(circle at right center, transparent 8rpx, #FF8888 0) right center / 8rpx 20rpx;
+					}
+
+					&::before {
+						content: '';
+						width: 1rpx;
+						background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
+						position: absolute;
+						left: 0;
+						top: 16rpx;
+						bottom: 16rpx;
+					}
+
+					.r-tickets-content {
+						margin-left: 35rpx;
+						width: 25rpx;
+						font-size: 20rpx;
+						color: white;
+						height: 100%;
+						// background-color: white;
+					}
+				}
 			}
 
-			.l-tickets {
-				width: 75%;
-				background: skyblue;
-			}
 
-			.r-tickets {
-				flex: 1;
-				background: orchid;
-			}
-
-			.l-tickets {
-				width: 75%;
-				height: 100%;
-				position: relative;
-			}
-
-			.l-tickets::after {
-				content: '';
-				position: absolute;
-				height: 100%;
-				width: 8rpx;
-				top: 0;
-				left: -8rpx;
-				/* 
-			    	语法：
-			    	background:bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; 
-			    	radial-gradient(shape size at position, start-color, ..., last-color);
-			    */
-				background: radial-gradient(circle at left center, transparent 8rpx, skyblue 0) left center / 8rpx 20rpx;
-			}
-
-			.r-tickets {
-				flex: 1;
-				position: relative;
-			}
-
-			.r-tickets::after {
-				content: '';
-				position: absolute;
-				height: 100%;
-				width: 8rpx;
-				top: 0;
-				right: -8rpx;
-				background: radial-gradient(circle at right center, transparent 8rpx, orchid 0) right center / 8rpx 20rpx;
-			}
-
-			.l-tickets {
-				width: 75%;
-				height: 100%;
-				position: relative;
-				background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat,
-					radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
-			}
-
-			.r-tickets {
-				position: relative;
-				background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat,
-					radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
-			}
-
-			.r-tickets::before {
-				content: '';
-				width: 1rpx;
-				background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
-				position: absolute;
-				left: 0;
-				top: 16rpx;
-				bottom: 16rpx;
-			}
-
-			.l-tickets {
-				width: 75%;
-				height: 100%;
-				position: relative;
-				background: radial-gradient(circle at right top, transparent 16rpx, skyblue 0) right top / 100% 50% no-repeat,
-					radial-gradient(circle at right bottom, transparent 16rpx, skyblue 0) right bottom / 100% 50% no-repeat;
-				filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, .3));
-			}
-
-			.r-tickets {
-				position: relative;
-				background: radial-gradient(circle at left top, transparent 16rpx, orchid 0) right top / 100% 50% no-repeat,
-					radial-gradient(circle at left bottom, transparent 16rpx, orchid 0) right bottom / 100% 50% no-repeat;
-				filter: drop-shadow(3px 0 3px rgba(0, 0, 0, .3));
-			}
-
-			.l-tickets {
-				width: 75%;
-				position: relative;
-				background: radial-gradient(circle at right top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat,
-					radial-gradient(circle at right bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
-				filter: drop-shadow(-3px 0 3px rgba(0, 0, 0, .3));
-			}
-
-			.l-tickets::after {
-				content: '';
-				position: absolute;
-				height: 100%;
-				width: 8rpx;
-				top: 0;
-				left: -8rpx;
-				background: radial-gradient(circle at left center, transparent 8rpx, #FF8888 0) left center / 8rpx 20rpx;
-			}
-
-			.r-tickets {
-				flex: 1;
-				position: relative;
-				background: radial-gradient(circle at left top, transparent 16rpx, #e63f00 0, #FF8888 100%) right top / 100% 50% no-repeat,
-					radial-gradient(circle at left bottom, transparent 16rpx, #e63f00 0, #FF8888 100%) right bottom / 100% 50% no-repeat;
-				filter: drop-shadow(3px 0 3px rgba(0, 0, 0, .3));
-			}
-
-			.r-tickets::before {
-				content: '';
-				width: 1rpx;
-				background: linear-gradient(to top, #fff 0%, #fff 50%, transparent 50%) top left / 1rpx 20rpx repeat-y;
-				position: absolute;
-				left: 0;
-				top: 16rpx;
-				bottom: 16rpx;
-			}
-
-			.r-tickets::after {
-				content: '';
-				position: absolute;
-				height: 100%;
-				width: 8rpx;
-				top: 0;
-				right: -8rpx;
-				background: radial-gradient(circle at right center, transparent 8rpx, #FF8888 0) right center / 8rpx 20rpx;
-			}
 
 		}
 
@@ -468,13 +534,22 @@
 		}
 
 		.shoppingnav {
+			height: 50rpx;
 			width: 100%;
 			white-space: nowrap;
 			padding: 10rpx 30rpx;
+			font-size: 30rpx;
 
 			.item {
 				margin-right: 50rpx;
+
+				&.active {
+					color: #f0160f;
+					border-bottom: 1px solid #f0160f;
+					box-sizing: border-box;
+				}
 			}
+
 		}
 
 		.shoppingContent {
@@ -522,10 +597,5 @@
 			}
 		}
 
-		.gridSwiper {
-			.swiper-item {
-				background-image: url("../../static/swiper1.jpg");
-			}
-		}
 	}
 </style>

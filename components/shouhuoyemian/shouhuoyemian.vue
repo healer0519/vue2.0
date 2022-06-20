@@ -13,9 +13,10 @@
 				v-model="searchValue" radius="100" />
 		</view>
 		<view style="padding: 10px;">
+			<radio-group @change="radiochange">
 			<view
 				style="width: 90vw;height: 100px;background-color: white;margin-bottom: 10px;border-radius: 10px;padding: 10px;"
-				v-for="item in datas" :key="item.name">
+				v-for="item in this.$store.state.address" :key="item.name">
 				<view style="padding: 10px;border-radius: 10px;margin-bottom: 10px;">
 					<view style="flex: 1;display: flex;"><text style="flex: 4;">收货人:{{item.name}}</text><text
 							style="flex: 2;align-items: flex-end;text-align: center;">{{item.phone}}</text></view>
@@ -24,12 +25,13 @@
 				<view style="margin-top: 10px;display: flex;border-top: 1px #999 solid;padding-top: 10px;">
 					<view style="flex: 1;display: flex;">
 						<view style="flex: 3;">
-							<radio></radio><text>设为默认</text>
+							<radio :value="item.name" :checked="item.flag"></radio><text>设为默认</text>
 						</view><text style="flex: 1;" @click="totianjia(item.name)">编辑</text><text style="flex: 1;"
 							@click="del(item.name)">删除</text>
 					</view>
 				</view>
 			</view>
+			
 			<!-- 搜索出来的页面 -->
 			<uni-popup ref="popup1" type="center" :mask-click="true" animation="true">
 				<view
@@ -38,18 +40,20 @@
 						<view style="flex: 1;display: flex;"><text style="flex: 4;">收货人:{{serachren.name}}</text><text
 								style="flex: 2;align-items: flex-end;text-align: center;">{{serachren.phone}}</text>
 						</view>
-						<view><text>收货地址:{{serachren.txt+serachren.xxaddress}}</text></view>
+						<text class="text"
+							style="width: 80px;overflow: hidden;">收货地址:{{serachren.txt+serachren.xxaddress}}</text>
 					</view>
 					<view style="margin-top: 10px;display: flex;border-top: 1px #999 solid;padding-top: 10px;">
 						<view style="flex: 1;display: flex;padding-bottom: 10px;">
 							<view style="flex: 3;">
-								<radio></radio><text>设为默认</text>
+								<radio :checked="index === current" :value="serachren.name"></radio><text>设为默认</text>
 							</view><text style="flex: 1;" @click="totianjia(serachren.name)">编辑</text><text
-								style="flex: 1;">删除</text>
+								style="flex: 1;" @click="del(serachren.name)">删除</text>
 						</view>
 					</view>
 				</view>
 			</uni-popup>
+			</radio-group>
 		</view>
 	</view>
 </template>
@@ -61,38 +65,52 @@
 	} from "vuex";
 	export default {
 		data() {
+
 			return {
+				radioflag: true,
+				current: 0,
 				name: {},
 				pic: {},
 				searchValue: "",
 				addressdata: [],
 				serachren: [],
+				datas: []
 			}
 		},
 		methods: {
-			...mapMutations(['addAddress','dele']),
+			...mapMutations(['addAddress', 'dele', 'bianji','mraddress']),
+			// 单选框
+			radiochange(e) {
+				console.log(e)
+				this.mraddress(e.detail.value)
+			},
 			del(key) {
 				console.log(key)
-				this.dele({name:key})
+				this.dele({
+					name: key
+				})
 			},
 			search(key) {
 				console.log(key)
-				this.addressdata = uni.getStorageSync('address')
+				this.addressdata = this.$store.state.address
 				console.log(this.addressdata)
 				this.serachren = this.addressdata.find(item => item.name == key)
 				console.log(this.serachren)
-				if(this.serachren!=undefined){
+				if (this.serachren != undefined) {
 					this.$refs.popup1.open('center')
-				}else{
+				} else {
 					uni.showToast({
 						title: "查无此人！",
 						duration: 2000,
 						icon: "error"
 					})
+					this.searchValue = ""
 				}
-				
+
 			},
+			// 跳转到添加收货页面
 			toadd() {
+				console.log("000000000")
 				uni.navigateTo({
 					url: '/components/tianjiayemian/tianjiayemian'
 				})
@@ -112,22 +130,26 @@
 						console.log("调用失败！")
 					}
 				})
+				this.datas = this.$store.state.address
+				console.log(this.datas)
 			}
 		},
-		// 注意mapState等方法写在计算属性中
-		computed: {
-			...mapGetters(["gouwuche/dele"]),
+		activated() {
+			// this.datas = this.$store.state.address
+			// console.log(this.datas)
 		},
+		// 注意mapState等方法写在计算属性
 		created() {
-			this.datas = uni.getStorageSync('address')
+			// this.datas = uni.getStorageSync('address')
 		},
 		onLoad() {
-			this.datas = uni.getStorageSync('address')
+			// this.datas = this.$store.state.address
+			// console.log(this.datas)
 		}
 
 	}
 </script>
 
-<style>
+<style lang="less" scoped>
 
 </style>

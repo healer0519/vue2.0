@@ -1,0 +1,1 @@
+<view><view style="padding:10px;background-color:black;height:100vh"><image src="{{a}}" style="width:80px;height:80px;border-radius:50%;display:block"></image><text style="color:gold;display:block;margin-left:20px">{{b}}</text></view></view>

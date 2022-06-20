@@ -22,21 +22,30 @@ var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
+      radioflag: true,
+      current: 0,
       name: {},
       pic: {},
       searchValue: "",
       addressdata: [],
-      serachren: []
+      serachren: [],
+      datas: []
     };
   },
-  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addAddress", "dele"])), {
+  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addAddress", "dele", "bianji", "mraddress"])), {
+    radiochange(e) {
+      console.log(e);
+      this.mraddress(e.detail.value);
+    },
     del(key) {
       console.log(key);
-      this.dele({ name: key });
+      this.dele({
+        name: key
+      });
     },
     search(key) {
       console.log(key);
-      this.addressdata = common_vendor.index.getStorageSync("address");
+      this.addressdata = this.$store.state.address;
       console.log(this.addressdata);
       this.serachren = this.addressdata.find((item) => item.name == key);
       console.log(this.serachren);
@@ -48,9 +57,11 @@ const _sfc_main = {
           duration: 2e3,
           icon: "error"
         });
+        this.searchValue = "";
       }
     },
     toadd() {
+      console.log("000000000");
       common_vendor.index.navigateTo({
         url: "/components/tianjiayemian/tianjiayemian"
       });
@@ -69,14 +80,15 @@ const _sfc_main = {
           console.log("\u8C03\u7528\u5931\u8D25\uFF01");
         }
       });
+      this.datas = this.$store.state.address;
+      console.log(this.datas);
     }
   }),
-  computed: __spreadValues({}, common_vendor.mapGetters(["gouwuche/dele"])),
+  activated() {
+  },
   created() {
-    this.datas = common_vendor.index.getStorageSync("address");
   },
   onLoad() {
-    this.datas = common_vendor.index.getStorageSync("address");
   }
 };
 if (!Array) {
@@ -101,26 +113,32 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       radius: "100",
       modelValue: $data.searchValue
     }),
-    f: common_vendor.f(_ctx.datas, (item, k0, i0) => {
+    f: common_vendor.f(this.$store.state.address, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.name),
         b: common_vendor.t(item.phone),
         c: common_vendor.t(item.txt + item.xxaddress),
-        d: common_vendor.o(($event) => $options.totianjia(item.name)),
-        e: common_vendor.o(($event) => $options.del(item.name)),
-        f: item.name
+        d: item.name,
+        e: item.flag,
+        f: common_vendor.o(($event) => $options.totianjia(item.name)),
+        g: common_vendor.o(($event) => $options.del(item.name)),
+        h: item.name
       };
     }),
     g: common_vendor.t($data.serachren.name),
     h: common_vendor.t($data.serachren.phone),
     i: common_vendor.t($data.serachren.txt + $data.serachren.xxaddress),
-    j: common_vendor.o(($event) => $options.totianjia($data.serachren.name)),
-    k: common_vendor.sr("popup1", "0b9ff360-1"),
-    l: common_vendor.p({
+    j: _ctx.index === $data.current,
+    k: $data.serachren.name,
+    l: common_vendor.o(($event) => $options.totianjia($data.serachren.name)),
+    m: common_vendor.o(($event) => $options.del($data.serachren.name)),
+    n: common_vendor.sr("popup1", "0b9ff360-1"),
+    o: common_vendor.p({
       type: "center",
       ["mask-click"]: true,
       animation: "true"
-    })
+    }),
+    p: common_vendor.o((...args) => $options.radiochange && $options.radiochange(...args))
   };
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "A:/vs code/uni-ui/vue/components/shouhuoyemian/shouhuoyemian.vue"]]);

@@ -38,11 +38,29 @@ const _sfc_main = {
       }
     };
   },
-  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addAddress"])), {
+  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addAddress", "bianji"])), {
     change(data) {
       console.log(data);
       this.formData.txt = data.data.join("");
       console.log(this.formData.txt);
+    },
+    bianji1(data) {
+      console.log(data);
+      if (data.name == "" || data.phone == "" || data.txt == "" || data.xxaddress == "") {
+        common_vendor.index.showToast({
+          title: "\u8BF7\u8F93\u5165\u5B8C\u6574\uFF01",
+          duration: 2e3,
+          icon: "error"
+        });
+      } else {
+        this.bianji({
+          name: data.name,
+          phone: data.phone,
+          txt: data.txt,
+          xxaddress: data.xxaddress
+        });
+        this.to();
+      }
     },
     submit() {
       console.log(this.formData);
@@ -63,16 +81,16 @@ const _sfc_main = {
       }
     },
     to() {
-      common_vendor.index.navigateTo({
-        url: "/components/shouhuoyemian/shouhuoyemian"
-      });
+      common_vendor.index.navigateBack();
     }
   }),
+  activated() {
+  },
   onLoad(options) {
     console.log(options);
     this.key = options.name;
     console.log(this.key);
-    this.datasss = common_vendor.index.getStorageSync("address");
+    this.datasss = this.$store.state.address;
     console.log(this.datasss);
     this.datass = this.datasss.find((item) => item.name == this.key);
     console.log(this.datass);
@@ -94,8 +112,8 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: $data.datass.length == 0
-  }, $data.datass.length == 0 ? {
+    a: $data.datass == void 0
+  }, $data.datass == void 0 ? {
     b: common_vendor.o(($event) => $data.formData.name = $event),
     c: common_vendor.p({
       type: "text",
@@ -137,7 +155,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     q: common_vendor.p({
       modelValue: $data.formData
     })
-  } : $data.datass.length != 0 ? {
+  } : $data.datass != void 0 ? {
     s: common_vendor.o(($event) => $data.datass.name = $event),
     t: common_vendor.p({
       type: "text",
@@ -177,11 +195,17 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     H: common_vendor.sr("form", "030c3b20-9"),
     I: common_vendor.p({
-      modelValue: $data.formData
+      modelValue: $data.datass
     })
   } : {}, {
-    r: $data.datass.length != 0,
-    J: common_vendor.o((...args) => $options.submit && $options.submit(...args))
+    r: $data.datass != void 0,
+    J: $data.datass == void 0
+  }, $data.datass == void 0 ? {
+    K: common_vendor.o((...args) => $options.submit && $options.submit(...args))
+  } : $data.datass != void 0 ? {
+    M: common_vendor.o(($event) => $options.bianji1($data.datass))
+  } : {}, {
+    L: $data.datass != void 0
   });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-030c3b20"], ["__file", "A:/vs code/uni-ui/vue/components/tianjiayemian/tianjiayemian.vue"]]);

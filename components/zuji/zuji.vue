@@ -22,34 +22,100 @@
 			</view>
 		</view>
 		<view>
-			<text style="display: block;color: #999;font-size: 12px;margin-top: 200px;margin-left: 38%;" >暂无浏览足迹欧~</text>
-			<button style="color: white;font-size: 12px;background-color: red;width: 30%;height: 30px;line-height: 30px;border-radius: 20px;margin-top: 20px;" @click="toindex">去商城逛逛</button>
+			<view v-if="this.$store.state.selectzuji.length==0">
+				<text
+					style="display: block;color: #999;font-size: 12px;margin-top: 200px;margin-left: 38%;">暂无浏览足迹欧~</text>
+				<button
+					style="color: white;font-size: 12px;background-color: red;width: 30%;height: 30px;line-height: 30px;border-radius: 20px;margin-top: 20px;"
+					@click="toindex">去商城逛逛</button>
+			</view>
+			<view v-else-if="this.$store.state.selectzuji.length!=0" style="width: 100vw;padding-top: 5px;">
+				<view v-for="item in this.$store.state.selectzuji" :key="item.id"
+					style="display: block;width: 30%;height: 210px;background-color: white;padding: 5px;border-radius: 10px;margin-right: 2px;margin-top: 2px;float: left;">
+					<text style="font-size: 12px;color: #999;">{{item.time.toString().substr(0, 10)}}</text>
+					<image :src="item.cover_pic" style="width: 112px;height: 112px;"></image>
+					<text style="font-size: 12px;">{{item.name}}</text>
+					<text
+						style="color: red;margin-left: -2px;margin-top: 5px;display: block;">{{item.price_content}}</text>
+					<text style="color: #999;display: block;margin-left: 90px;margin-top: -20px;"
+						@click="open(item.id)">...</text>
+				</view>
+			</view>
 		</view>
+
+		<!-- 弹出层 -->
+		<uni-popup ref="popup" type="bottom" :mask-click="false">
+			<view style="width: 100vw;background-color: #ccc;height: 120px;">
+				<view style="height: 80px;display: flex;">
+					<image src="../../static/ws/collect.jpg"
+						style="width: 40px;height: 40px;margin-left: 120px;margin-top: 10px;border-radius: 10px;"
+						@click="shoucang"></image>
+					<image src="../../static/ws/delete.JPEG"
+						style="width: 40px;height: 40px;margin-left: 60px;margin-top: 10px;border-radius: 10px;"
+						@click="shanchu"></image>
+					<text
+						style="font-size: 16px;flex: 4;display: block;margin-left: 60px;align-items: flex-end;text-align: right;"
+						@click="close">X</text>
+				</view>
+				<text
+					style="width: 100%;display: block;height: 40px;background-color: white;text-align: center;line-height: 40px;"
+					@click="close">取消</text>
+			</view>
+		</uni-popup>
 	</view>
 </template>
 
 <script>
+	import {
+		mapMutations
+	} from 'vuex'
 	export default {
 		data() {
 			return {
 				current: 1,
-				current1: 1
+				current1: 1,
+				datas: [],
+				key1: ""
 			}
 		},
 		methods: {
+			...mapMutations(['delzuji', 'addshoucang', 'selectdata']),
+			open(key) {
+				// 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
+				this.$refs.popup.open('bottom')
+				this.key1 = key
+				console.log(this.key1)
+			},
+			close() {
+				this.$refs.popup.close()
+			},
+
 			clickTab(e) {
 				this.current = e
 			},
 			clickTab1(e) {
+				console.log(e)
 				this.current1 = e
+				this.selectdata(e)
 			},
-			toindex(){
+			toindex() {
 				// 这里使用redirectTo，navigateTo不能跳转tarbar内的页面
 				uni.redirectTo({
-					url:'/pages/index/index'
+					url: '/pages/index/index'
 				})
+			},
+			shoucang() {
+				this.addshoucang(this.key1)
+				this.close()
+			},
+			shanchu() {
+				console.log(this.key1)
+				this.delzuji(this.key1)
+				this.close()
 			}
-		}
+		},
+		activated() {},
+		onLoad() {}
 	}
 </script>
 

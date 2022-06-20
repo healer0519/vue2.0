@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="cartpop">
 		<button @click="open" class="rightbuybotton">购买</button>
 		<uni-popup ref="popup" type="bottom">
 			<view class="popcontent" scroll-y="true">
@@ -120,7 +120,7 @@
 		text-align: center;
 		font-size: 10px;
 		position: absolute;
-		background: red;
+		background-color: red;
 		color: white;
 		bottom: 10px;
 		right: 10px;

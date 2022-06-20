@@ -1,5 +1,5 @@
 "use strict";
-var static_datas = require("../../static/datas.js");
+var static_ws_datas = require("../../static/ws/datas.js");
 var common_vendor = require("../../common/vendor.js");
 let selectVal = ["", "", ""];
 const _sfc_main = {
@@ -13,7 +13,11 @@ const _sfc_main = {
   created() {
     this.initSelect();
   },
+  onLoad() {
+    this.initSelect();
+  },
   methods: {
+    AllAddress: static_ws_datas.AllAddress,
     initSelect() {
       this.updateSourceDate().updateAddressDate().$forceUpdate();
     },
@@ -22,17 +26,17 @@ const _sfc_main = {
     },
     updateSourceDate() {
       this.array = [];
-      this.array[0] = static_datas.AllAddress.map((obj) => {
+      this.array[0] = static_ws_datas.AllAddress.map((obj) => {
         return {
           name: obj.name
         };
       });
-      this.array[1] = static_datas.AllAddress[this.value[0]].city.map((obj) => {
+      this.array[1] = static_ws_datas.AllAddress[this.value[0]].city.map((obj) => {
         return {
           name: obj.name
         };
       });
-      this.array[2] = static_datas.AllAddress[this.value[0]].city[this.value[1]].area.map((obj) => {
+      this.array[2] = static_ws_datas.AllAddress[this.value[0]].city[this.value[1]].area.map((obj) => {
         return {
           name: obj
         };

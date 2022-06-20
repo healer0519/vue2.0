@@ -23,6 +23,8 @@ if (!Math) {
   "./components/zuji/zuji.js";
   "./components/myorder/myorder.js";
   "./components/spxiangqing/spxiangqing.js";
+  "./components/juan/juan.js";
+  "./components/huiyuan/huiyuan.js";
 }
 const _sfc_main = {
   onLaunch: function() {

@@ -2,6 +2,7 @@
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   name: "myorder",
+  datas: [],
   data() {
     return {
       current: 1
@@ -11,6 +12,10 @@ const _sfc_main = {
     clickTab(e) {
       this.current = e;
     }
+  },
+  onLoad() {
+    this.datas = common_vendor.index.getStorageInfo("carts");
+    console.log(this.datas);
   }
 };
 if (!Array) {

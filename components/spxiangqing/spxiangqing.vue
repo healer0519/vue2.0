@@ -5,17 +5,13 @@
 			<uni-swiper-dot :info="datas.pic_url" :current="current" field="content" :mode="mode">
 				<swiper class="swiper-box" @change="change" circular>
 					<swiper-item v-for="(item ,index) in datas.pic_url" :key="item.id" class="swiper-item1">
-						<!-- 这里注意阻止事件冒泡 -->
-						<view class="swiper-item">
+						<view class="swiper-item" @click="look(item.pic_url)">
 							<image :src="item.pic_url" mode="widthFix"></image>
 						</view>
 					</swiper-item>
 				</swiper>
 			</uni-swiper-dot>
 		</view>
-
-
-
 		<view class="box1"
 			style="width: 90%;padding: 10px;background-color: white;border-radius: 10px;margin-left: 2.5%;margin-top: 10px;">
 			<view style="display: flex;margin-bottom: 5px;">
@@ -38,7 +34,7 @@
 			<view style="margin-bottom: 5px;font-size: 10px;color: #999999;">
 				<text>{{datas.subtitle}}</text>
 			</view>
-			<view @click="xuanze"
+			<view @click="liaojiegengduo"
 				style="display: flex;margin-bottom: 5px;font-size: 10px;background-color: gold;border-radius: 10px;height: 30px;padding-left: 10px;padding-right: 10px;">
 				<text style="flex: 5;display: flex;display: block;height: 30px;line-height: 30px;"><text
 						style="flex: 5;">加入会员，享会员价</text><text
@@ -88,7 +84,7 @@
 				<image :src="item.img"></image>
 			</view> -->
 		</view>
-
+		<!-- 底部推荐商品 -->
 		<view class="tuijiansp" style="height: auto;">
 			<view style="display: flex;background-color: transparent;height: 40px;line-height: 40px;padding: 10px;">
 				<text style="height: 40px;line-height: 40px;margin-left: 80px;color: #999999;">——</text>
@@ -98,24 +94,22 @@
 				<text
 					style="color: #999999;font-size: 15px;flex: 5;text-align: center;margin-left: -80px;">{{spdb.text}}——</text>
 			</view>
-			<view>
-				<view class="list">
-					<!-- /web/index.php?_mall_id=22293&r=api/index/diy-goods&cat_id=350930&goodsNum=30 -->
-					<view class="item" v-for="(item,index) in splist" :key="item.id">
-						<view class="itemcontent">
-							<image :src="item.cover_pic" mode="widthFix"></image>
-							<view class="title">{{item.name}}</view>
-							<!-- <view class="price">
-									<text>{{item.price_content}}</text>
-								</view> -->
-							<!-- 已售 -->
-							<!-- <view class="sales">
-									{{item.sales}}
-								</view> -->
-						</view>
+			<view class="shoppingContent">
+				<view class="shoppingitem" v-for="item in splist" @click="toxiangqing(item,item.id)">
+					<image :src="item.cover_pic" mode=""></image>
+
+					<view class="des">
+						<view class="itemname">{{item.name}}</view>
+						<view class="itemprice">{{item.price_content}}</view>
+						<view class="itemoldprice">{{item.original_price}}</view>
+						<cartpop :item="item"></cartpop>
 					</view>
 				</view>
 			</view>
+		</view>
+		<view class="goods-carts">
+			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
+				@buttonClick="buttonClick" />
 		</view>
 
 		<!-- 包邮遮罩层 -->
@@ -128,8 +122,7 @@
 							style="text-align: center;display: block;margin-bottom: 10px;flex: 6;display: block;margin-left: 40px;">包邮</text>
 						<text style="flex: 1;display: block;margin-left: 20px;" @click="close2">X</text>
 					</view>
-
-					{{datas.goods_marketing.shipping}}
+					<text>{{datas.goods_marketing.shipping}}</text>
 				</view>
 			</view>
 		</uni-popup>
@@ -252,6 +245,15 @@
 	export default {
 		data() {
 			return {
+				options: [{
+					icon: 'shop',
+					text: '店铺',
+					infoBackgroundColor: '#007aff',
+					infoColor: "#f5f5f5"
+				}, {
+					icon: 'cart',
+					text: '购物车',
+				}],
 				buttonGroup: [{
 						text: '加入购物车',
 						backgroundColor: 'linear-gradient(90deg, #FFCD1E, #FF8A18)',
@@ -292,6 +294,7 @@
 			...mapMutations(['addCar']),
 			// 获取页面数据
 			async getdatas(id) {
+				console.log(id)
 				let result = await requestGet(
 					`/web/index.php?_mall_id=22293&r=api/goods/detail&id=${id}&plugin=mall`)
 				console.log(result)
@@ -299,8 +302,8 @@
 				console.log(this.datas)
 			},
 			// 底部商品列表
-			async getsplist(id) {
-				console.log(id)
+			async getsplist() {
+				console.log()
 				let result = await requestGet(
 					`/web/index.php?_mall_id=22293&r=api/goods/new-recommend&type=cart`)
 				console.log(result)
@@ -308,9 +311,22 @@
 				result.code == 0 ? this.spdb = result.data.comment_style : ""
 				console.log(this.splist, this.spdb)
 			},
+			//图片预览
+			look(key) {
+				console.log(key)
+				uni.previewImage({
+					urls: [key],
+				})
+			},
 			// 轮播滚动
 			change(e) {
 				this.current = e.detail.current;
+			},
+			// 会员页面
+			liaojiegengduo() {
+				uni.navigateTo({
+					url: '/components/huiyuan/huiyuan'
+				})
 			},
 			// 包邮详细
 			toxiangxi() {
@@ -363,10 +379,10 @@
 			}
 		},
 		created() {
-			// this.getdatas()
+			this.getsplist()
 		},
 		onLoad(options) {
-			console.log(options)
+			console.log(options.id)
 			this.getdatas(options.id)
 		}
 	}
@@ -472,6 +488,67 @@
 							}
 						}
 					}
+				}
+			}
+		}
+		.goods-carts {
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: column;
+				position: fixed;
+				left: 0;
+				right: 0;
+				/* #ifdef H5 */
+				left: var(--window-left);
+				right: var(--window-right);
+				/* #endif */
+				bottom: 0;
+			}
+
+		.tuijiansp {
+			.shoppingContent {
+
+				.shoppingitem {
+					background-color: white;
+					margin: 5px;
+					width: 350rpx;
+					height: 550rpx;
+					float: left;
+					border: 1px solid lightgrey;
+					border-radius: 20px;
+
+					image {
+						border-radius: 20px 20px 0 0;
+						width: 100%;
+						height: 350rpx;
+					}
+
+
+
+					.des {
+
+						position: relative;
+						padding: 20rpx;
+
+						.itemname {
+							height: 65rpx;
+							font-size: 25rpx;
+						}
+
+						.itemprice {
+							font-size: 35rpx;
+							color: red;
+						}
+
+						.itemoldprice {
+							font-size: 20rpx;
+							color: gray;
+							text-decoration: line-through;
+						}
+
+					}
+
 				}
 			}
 		}
